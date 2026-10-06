@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 Grupo Isonor - David Palanca
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+    <record id="view_deca_cancel_wizard_form" model="ir.ui.view">
+        <field name="name">l10n.es.deca.cancel.wizard.form</field>
+        <field name="model">l10n.es.deca.cancel.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Cancel DeCA">
+                <div class="alert alert-danger" role="alert">
+                    This is not one of the modification methods of the Resolution
+                    (Method A/B are meant for a service in progress or already
+                    finished) -- it is meant to void a DeCA whose service never
+                    starts. The PDF and the token are kept due to the retention
+                    obligation, but the public link stops serving the file
+                    immediately. This cannot be undone.
+                </div>
+                <group>
+                    <field name="deca_id" invisible="1" />
+                    <field
+            name="reason"
+            placeholder="e.g. The service is not carried out"
+          />
+                </group>
+                <footer>
+                    <button
+            name="action_cancel"
+            string="Cancel DeCA"
+            type="object"
+            class="btn-primary"
+            data-hotkey="q"
+          />
+                    <button
+            string="Close"
+            class="btn-secondary"
+            special="cancel"
+            data-hotkey="x"
+          />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+</odoo>

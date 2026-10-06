@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 Grupo Isonor - David Palanca
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+    <record id="view_deca_own_document_form" model="ir.ui.view">
+        <field name="name">l10n.es.deca.own.document.form</field>
+        <field name="model">l10n.es.deca.own.document</field>
+        <field name="arch" type="xml">
+            <form string="Convert document to DeCA">
+                <div class="alert alert-info" role="alert">
+                    Pick your own document and the DeCA QR code will be stamped
+                    on it. The stamped file replaces the one Odoo generates: it
+                    is the one carried in the vehicle and the one the authority
+                    downloads from the public link. You will be able to drag the
+                    QR wherever you want right after confirming.
+                </div>
+                <group>
+                    <field name="deca_id" invisible="1" />
+                    <field name="document" filename="document_filename" />
+                    <field name="document_filename" invisible="1" />
+                </group>
+                <footer>
+                    <button
+            name="action_confirm"
+            string="Convert document to DeCA"
+            type="object"
+            class="btn-primary"
+            data-hotkey="q"
+          />
+                    <button
+            string="Close"
+            class="btn-secondary"
+            special="cancel"
+            data-hotkey="x"
+          />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+</odoo>

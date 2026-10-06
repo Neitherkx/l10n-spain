@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 Grupo Isonor - David Palanca
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+    <record id="view_picking_form_deca" model="ir.ui.view">
+        <field name="name">stock.picking.form.deca</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <field name="deca_state" invisible="1" />
+                <field name="deca_id" invisible="1" />
+                <button
+          name="action_generate_deca"
+          string="Generate DeCA"
+          type="object"
+          invisible="picking_type_code != 'outgoing' or deca_id or state == 'cancel'"
+          groups="l10n_es_deca.group_deca_user"
+        />
+                <button
+          name="action_open_deca"
+          string="View DeCA"
+          type="object"
+          invisible="not deca_id"
+        />
+            </xpath>
+            <xpath expr="//header" position="before">
+                <div
+          class="d-flex align-items-center gap-2 px-3 pt-2"
+          invisible="picking_type_code != 'incoming' or deca_state == 'not_required'"
+        >
+                    <label
+            for="deca_received_file"
+            string="Attach DeCA:"
+            class="fw-bold mb-0"
+          />
+                    <field
+            name="deca_received_file"
+            filename="deca_received_filename"
+            nolabel="1"
+          />
+                    <field name="deca_received_filename" invisible="1" />
+                </div>
+            </xpath>
+            <xpath expr="//field[@name='partner_id'][@nolabel='1']" position="after">
+                <field
+          name="deca_carrier_id"
+          invisible="picking_type_code != 'outgoing'"
+          readonly="deca_id"
+          context="{'default_deca_carrier': True, 'default_company_type': 'company'}"
+        />
+            </xpath>
+        </field>
+    </record>
+
+    <record id="vpicktree_deca" model="ir.ui.view">
+        <field name="name">stock.picking.list.deca</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.vpicktree" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='state']" position="after">
+                <field
+          name="deca_state"
+          widget="badge"
+          optional="show"
+          decoration-success="deca_state in ('issued', 'attached')"
+          decoration-info="deca_state == 'draft'"
+          decoration-danger="deca_state == 'not_generated'"
+          decoration-warning="deca_state == 'cancelled'"
+          decoration-muted="deca_state in ('not_required', 'not_attached', 'closed')"
+        />
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_picking_internal_search_deca" model="ir.ui.view">
+        <field name="name">stock.picking.search.deca</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_internal_search" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="deca_carrier_id" />
+            </xpath>
+            <xpath expr="//filter[@name='starred']" position="after">
+                <separator />
+                <filter
+          name="filter_deca_missing"
+          string="Without DeCA"
+          domain="[('deca_state', '=', 'not_generated')]"
+        />
+                <filter
+          name="filter_deca_draft"
+          string="Draft DeCA"
+          domain="[('deca_state', '=', 'draft')]"
+        />
+                <filter
+          name="filter_deca_issued"
+          string="Issued DeCA"
+          domain="[('deca_state', '=', 'issued')]"
+        />
+            </xpath>
+        </field>
+    </record>
+
+    <record id="action_picking_generate_deca" model="ir.actions.server">
+        <field name="name">Generate DeCA</field>
+        <field name="model_id" ref="stock.model_stock_picking" />
+        <field name="binding_model_id" ref="stock.model_stock_picking" />
+        <field name="binding_view_types">list</field>
+        <field name="groups_id" eval="[(4, ref('l10n_es_deca.group_deca_user'))]" />
+        <field name="state">code</field>
+        <field name="code">action = records.action_generate_deca()</field>
+    </record>
+
+</odoo>

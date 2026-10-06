@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 Grupo Isonor - David Palanca
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+    <record id="view_partner_form_deca" model="ir.ui.view">
+        <field name="name">res.partner.form.deca</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='category_id']" position="after">
+                <field name="deca_carrier" />
+                <field
+          name="deca_authorization"
+          invisible="not deca_carrier"
+          placeholder="MDP-N / MDL-N"
+        />
+            </xpath>
+            <xpath expr="//notebook" position="inside">
+                <page
+          string="Vehicles"
+          name="deca_vehicles"
+          invisible="not deca_carrier"
+        >
+                    <field name="deca_vehicle_ids" context="{'default_partner_id': id}">
+                        <list editable="bottom">
+                            <field name="name" placeholder="1234ABC" />
+                            <field name="vehicle_type" />
+                            <field
+                name="company_id"
+                groups="base.group_multi_company"
+                optional="show"
+              />
+                            <field name="note" optional="show" />
+                        </list>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_partner_filter_deca" model="ir.ui.view">
+        <field name="name">res.partner.search.deca</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_res_partner_filter" />
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='type_company']" position="after">
+                <separator />
+                <filter
+          name="filter_deca_carrier"
+          string="DeCA Carriers"
+          domain="[('deca_carrier', '=', True)]"
+        />
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

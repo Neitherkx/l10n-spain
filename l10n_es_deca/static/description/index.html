@@ -1,0 +1,510 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils: https://docutils.sourceforge.io/" />
+<title>DeCA Spain - Electronic Administrative Control Document</title>
+<style type="text/css">
+
+/*
+:Author: David Goodger (goodger@python.org)
+:Id: $Id: html4css1.css 9511 2024-01-13 09:50:07Z milde $
+:Copyright: This stylesheet has been placed in the public domain.
+
+Default cascading style sheet for the HTML output of Docutils.
+Despite the name, some widely supported CSS2 features are used.
+
+See https://docutils.sourceforge.io/docs/howto/html-stylesheets.html for how to
+customize this style sheet.
+*/
+
+/* used to remove borders from tables and images */
+.borderless, table.borderless td, table.borderless th {
+  border: 0 }
+
+table.borderless td, table.borderless th {
+  /* Override padding for "table.docutils td" with "! important".
+     The right padding separates the table cells. */
+  padding: 0 0.5em 0 0 ! important }
+
+.first {
+  /* Override more specific margin styles with "! important". */
+  margin-top: 0 ! important }
+
+.last, .with-subtitle {
+  margin-bottom: 0 ! important }
+
+.hidden {
+  display: none }
+
+.subscript {
+  vertical-align: sub;
+  font-size: smaller }
+
+.superscript {
+  vertical-align: super;
+  font-size: smaller }
+
+a.toc-backref {
+  text-decoration: none ;
+  color: black }
+
+blockquote.epigraph {
+  margin: 2em 5em ; }
+
+dl.docutils dd {
+  margin-bottom: 0.5em }
+
+object[type="image/svg+xml"], object[type="application/x-shockwave-flash"] {
+  overflow: hidden;
+}
+
+/* Uncomment (and remove this text!) to get bold-faced definition list terms
+dl.docutils dt {
+  font-weight: bold }
+*/
+
+div.abstract {
+  margin: 2em 5em }
+
+div.abstract p.topic-title {
+  font-weight: bold ;
+  text-align: center }
+
+div.admonition, div.attention, div.caution, div.danger, div.error,
+div.hint, div.important, div.note, div.tip, div.warning {
+  margin: 2em ;
+  border: medium outset ;
+  padding: 1em }
+
+div.admonition p.admonition-title, div.hint p.admonition-title,
+div.important p.admonition-title, div.note p.admonition-title,
+div.tip p.admonition-title {
+  font-weight: bold ;
+  font-family: sans-serif }
+
+div.attention p.admonition-title, div.caution p.admonition-title,
+div.danger p.admonition-title, div.error p.admonition-title,
+div.warning p.admonition-title, .code .error {
+  color: red ;
+  font-weight: bold ;
+  font-family: sans-serif }
+
+/* Uncomment (and remove this text!) to get reduced vertical space in
+   compound paragraphs.
+div.compound .compound-first, div.compound .compound-middle {
+  margin-bottom: 0.5em }
+
+div.compound .compound-last, div.compound .compound-middle {
+  margin-top: 0.5em }
+*/
+
+div.dedication {
+  margin: 2em 5em ;
+  text-align: center ;
+  font-style: italic }
+
+div.dedication p.topic-title {
+  font-weight: bold ;
+  font-style: normal }
+
+div.figure {
+  margin-left: 2em ;
+  margin-right: 2em }
+
+div.footer, div.header {
+  clear: both;
+  font-size: smaller }
+
+div.line-block {
+  display: block ;
+  margin-top: 1em ;
+  margin-bottom: 1em }
+
+div.line-block div.line-block {
+  margin-top: 0 ;
+  margin-bottom: 0 ;
+  margin-left: 1.5em }
+
+div.sidebar {
+  margin: 0 0 0.5em 1em ;
+  border: medium outset ;
+  padding: 1em ;
+  background-color: #ffffee ;
+  width: 40% ;
+  float: right ;
+  clear: right }
+
+div.sidebar p.rubric {
+  font-family: sans-serif ;
+  font-size: medium }
+
+div.system-messages {
+  margin: 5em }
+
+div.system-messages h1 {
+  color: red }
+
+div.system-message {
+  border: medium outset ;
+  padding: 1em }
+
+div.system-message p.system-message-title {
+  color: red ;
+  font-weight: bold }
+
+div.topic {
+  margin: 2em }
+
+h1.section-subtitle, h2.section-subtitle, h3.section-subtitle,
+h4.section-subtitle, h5.section-subtitle, h6.section-subtitle {
+  margin-top: 0.4em }
+
+h1.title {
+  text-align: center }
+
+h2.subtitle {
+  text-align: center }
+
+hr.docutils {
+  width: 75% }
+
+img.align-left, .figure.align-left, object.align-left, table.align-left {
+  clear: left ;
+  float: left ;
+  margin-right: 1em }
+
+img.align-right, .figure.align-right, object.align-right, table.align-right {
+  clear: right ;
+  float: right ;
+  margin-left: 1em }
+
+img.align-center, .figure.align-center, object.align-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+table.align-center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.align-left {
+  text-align: left }
+
+.align-center {
+  clear: both ;
+  text-align: center }
+
+.align-right {
+  text-align: right }
+
+/* reset inner alignment in figures */
+div.align-right {
+  text-align: inherit }
+
+/* div.align-center * { */
+/*   text-align: left } */
+
+.align-top    {
+  vertical-align: top }
+
+.align-middle {
+  vertical-align: middle }
+
+.align-bottom {
+  vertical-align: bottom }
+
+ol.simple, ul.simple {
+  margin-bottom: 1em }
+
+ol.arabic {
+  list-style: decimal }
+
+ol.loweralpha {
+  list-style: lower-alpha }
+
+ol.upperalpha {
+  list-style: upper-alpha }
+
+ol.lowerroman {
+  list-style: lower-roman }
+
+ol.upperroman {
+  list-style: upper-roman }
+
+p.attribution {
+  text-align: right ;
+  margin-left: 50% }
+
+p.caption {
+  font-style: italic }
+
+p.credits {
+  font-style: italic ;
+  font-size: smaller }
+
+p.label {
+  white-space: nowrap }
+
+p.rubric {
+  font-weight: bold ;
+  font-size: larger ;
+  color: maroon ;
+  text-align: center }
+
+p.sidebar-title {
+  font-family: sans-serif ;
+  font-weight: bold ;
+  font-size: larger }
+
+p.sidebar-subtitle {
+  font-family: sans-serif ;
+  font-weight: bold }
+
+p.topic-title {
+  font-weight: bold }
+
+pre.address {
+  margin-bottom: 0 ;
+  margin-top: 0 ;
+  font: inherit }
+
+pre.literal-block, pre.doctest-block, pre.math, pre.code {
+  margin-left: 2em ;
+  margin-right: 2em }
+
+pre.code .ln { color: gray; } /* line numbers */
+pre.code, code { background-color: #eeeeee }
+pre.code .comment, code .comment { color: #5C6576 }
+pre.code .keyword, code .keyword { color: #3B0D06; font-weight: bold }
+pre.code .literal.string, code .literal.string { color: #0C5404 }
+pre.code .name.builtin, code .name.builtin { color: #352B84 }
+pre.code .deleted, code .deleted { background-color: #DEB0A1}
+pre.code .inserted, code .inserted { background-color: #A3D289}
+
+span.classifier {
+  font-family: sans-serif ;
+  font-style: oblique }
+
+span.classifier-delimiter {
+  font-family: sans-serif ;
+  font-weight: bold }
+
+span.interpreted {
+  font-family: sans-serif }
+
+span.option {
+  white-space: nowrap }
+
+span.pre {
+  white-space: pre }
+
+span.problematic, pre.problematic {
+  color: red }
+
+span.section-subtitle {
+  /* font-size relative to parent (h1..h6 element) */
+  font-size: 80% }
+
+table.citation {
+  border-left: solid 1px gray;
+  margin-left: 1px }
+
+table.docinfo {
+  margin: 2em 4em }
+
+table.docutils {
+  margin-top: 0.5em ;
+  margin-bottom: 0.5em }
+
+table.footnote {
+  border-left: solid 1px black;
+  margin-left: 1px }
+
+table.docutils td, table.docutils th,
+table.docinfo td, table.docinfo th {
+  padding-left: 0.5em ;
+  padding-right: 0.5em ;
+  vertical-align: top }
+
+table.docutils th.field-name, table.docinfo th.docinfo-name {
+  font-weight: bold ;
+  text-align: left ;
+  white-space: nowrap ;
+  padding-left: 0 }
+
+/* "booktabs" style (no vertical lines) */
+table.docutils.booktabs {
+  border: 0px;
+  border-top: 2px solid;
+  border-bottom: 2px solid;
+  border-collapse: collapse;
+}
+table.docutils.booktabs * {
+  border: 0px;
+}
+table.docutils.booktabs th {
+  border-bottom: thin solid;
+  text-align: left;
+}
+
+h1 tt.docutils, h2 tt.docutils, h3 tt.docutils,
+h4 tt.docutils, h5 tt.docutils, h6 tt.docutils {
+  font-size: 100% }
+
+ul.auto-toc {
+  list-style-type: none }
+
+</style>
+</head>
+<body>
+<div class="document" id="deca-spain-electronic-administrative-control-document">
+<h1 class="title">DeCA Spain - Electronic Administrative Control Document</h1>
+
+<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!! This file is generated by oca-gen-addon-readme !!
+!! changes will be overwritten.                   !!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!! source digest: sha256:d625715dc08f44fd669d2845d9d26296b33e7f843a831d5a391c24653c01def3
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+<p><a class="reference external image-reference" href="https://odoo-community.org/page/development-status"><img alt="Beta" src="https://img.shields.io/badge/maturity-Beta-yellow.png" /></a> <a class="reference external image-reference" href="http://www.gnu.org/licenses/agpl-3.0-standalone.html"><img alt="License: AGPL-3" src="https://img.shields.io/badge/licence-AGPL--3-blue.png" /></a> <a class="reference external image-reference" href="https://github.com/OCA/l10n-spain/tree/18.0/l10n_es_deca"><img alt="OCA/l10n-spain" src="https://img.shields.io/badge/github-OCA%2Fl10n--spain-lightgray.png?logo=github" /></a> <a class="reference external image-reference" href="https://translation.odoo-community.org/projects/l10n-spain-18-0/l10n-spain-18-0-l10n_es_deca"><img alt="Translate me on Weblate" src="https://img.shields.io/badge/weblate-Translate%20me-F47D42.png" /></a> <a class="reference external image-reference" href="https://runboat.odoo-community.org/builds?repo=OCA/l10n-spain&amp;target_branch=18.0"><img alt="Try me on Runboat" src="https://img.shields.io/badge/runboat-Try%20me-875A7B.png" /></a></p>
+<div class="section" id="electronic-administrative-control-document-deca">
+<h1>Electronic Administrative Control Document (DeCA)</h1>
+<p>This module implements the <strong>Electronic Administrative Control Document
+(DeCA)</strong> for road freight transport in Spain, in compliance with:</p>
+<ul class="simple">
+<li>Resolution of 5 June 2026 of the Directorate-General for Land
+Transport (BOE-A-2026-12784).</li>
+<li>Order FOM/2861/2012, of 13 December (article 6).</li>
+<li>Act 9/2025.</li>
+</ul>
+<div class="section" id="features">
+<h2>Features</h2>
+<ul class="simple">
+<li>Generates a DeCA out of one or several deliveries (<tt class="docutils literal">stock.picking</tt>),
+without depending on any TMS module.</li>
+<li>Issuance with a <strong>logically single-use public token</strong>, public URL, QR
+code and <strong>SHA-256</strong> fingerprint of the PDF, so that the document can
+be shown on the road without manual interaction.</li>
+<li><strong>Method A</strong> (<em>Register modification</em>, section Quinto.1): the new data
+is added to the same PDF, keeping token, URL and QR, with an immutable
+change history printed on the document itself.</li>
+<li><strong>Method B</strong> (<em>Reissue DeCA</em>, section Quinto.2): generates a new
+document with its own token and redirects the old link to the one in
+force.</li>
+<li><strong>Cancellation</strong>: voids a DeCA whose service never starts, keeping the
+PDF and the token due to the retention obligation.</li>
+<li><strong>Automatic closing of the public access</strong> seven calendar days after
+the end of the service, and <strong>access log</strong> (date, IP, method and
+status code) with a scheduled purge.</li>
+<li><strong>Vehicle</strong> master data (tractor and trailer plates) per carrier.</li>
+<li>Control of <strong>receipts</strong>: allows attaching the DeCA received from the
+supplier.</li>
+<li><strong>Your own document</strong>: <em>Convert document to DeCA</em> takes a PDF of your
+choice and stamps the DeCA QR code on it, dragging it over a preview
+of the page. The stamped file then replaces the document Odoo
+generates: it is the one carried in the vehicle, the one the authority
+downloads from the public link and the one the SHA-256 fingerprint is
+computed over. A DeCA built this way does not need any delivery to be
+selected, because your own document already details the shipment.</li>
+<li><strong>Guided tour</strong> of the whole flow, available at any time from
+<em>Inventory → Configuration → DeCA guided tour</em>.</li>
+</ul>
+</div>
+<div class="section" id="configuration">
+<h2>Configuration</h2>
+<p>In <em>Inventory → Configuration → Settings → DeCA</em>:</p>
+<ul class="simple">
+<li><strong>Own fleet</strong>: the company is set as the effective carrier by default.</li>
+<li><strong>DeCA public domain</strong>: leave it empty unless a reverse proxy
+publishes this company’s documents under a different domain name. By
+default the instance’s own domain (<tt class="docutils literal">web.base.url</tt>) is used, which is
+what answers <tt class="docutils literal"><span class="pre">/deca/&lt;token&gt;</span></tt>. The company’s commercial website is
+not used, because it usually does not serve that route and the QR
+would be broken.</li>
+<li><strong>Default QR placement on your own document</strong>: starting page, position
+and size of the QR code when a customer converts their own document
+into a DeCA. It can still be dragged document by document.</li>
+</ul>
+<p>Flag as <strong>DeCA Carrier</strong> the contacts providing the transport service
+and register their plates in the <em>Vehicles</em> tab.</p>
+</div>
+<div class="section" id="known-conflicts">
+<h2>Known conflicts</h2>
+<p>The OCA module <tt class="docutils literal">web_no_bubble</tt> hides every tour pointer with a
+<tt class="docutils literal">.o_tour_pointer { display: none; }</tt> rule. Since this module ships a
+guided tour, it restores the pointer with a more specific selector. If
+<tt class="docutils literal">web_no_bubble</tt> is installed, the core Odoo onboarding pointers become
+visible again as a side effect.</p>
+<p>Launching the guided tour turns on the onboarding of the current user
+(<tt class="docutils literal">res.users.tour_enabled</tt>), which is how Odoo allows a tour to be
+replayed. As a consequence, once the DeCA tour ends Odoo chains the next
+pending onboarding tour of the user, if there is one.</p>
+</div>
+<div class="section" id="multi-company">
+<h2>Multi-company</h2>
+<ul class="simple">
+<li>Each company only sees its own DeCA, lines, modifications and access
+records (global record rules).</li>
+<li>Plates can be assigned to a company or left blank to share them across
+all of them.</li>
+<li>Numbering is independent per company: the first time a company issues
+a DeCA its own <tt class="docutils literal">ir.sequence</tt> is created automatically with the code
+<tt class="docutils literal">l10n.es.deca</tt> and the prefix <tt class="docutils literal"><span class="pre">DECA/%(year)s/</span></tt>, which can be
+adjusted afterwards from <em>Technical settings → Sequences</em>.</li>
+<li>The <strong>DeCA public domain</strong> and the <strong>Own fleet</strong> option are configured
+per company.</li>
+</ul>
+</div>
+<div class="section" id="dependencies">
+<h2>Dependencies</h2>
+<ul class="simple">
+<li>Odoo: <tt class="docutils literal">stock</tt>, <tt class="docutils literal">mail</tt>, <tt class="docutils literal">web_tour</tt></li>
+<li>Python: <tt class="docutils literal">qrcode</tt>, <tt class="docutils literal">reportlab</tt>, <tt class="docutils literal">PyPDF2</tt></li>
+</ul>
+<p><strong>Table of contents</strong></p>
+</div>
+</div>
+<div class="section" id="bug-tracker">
+<h1>Bug Tracker</h1>
+<p>Bugs are tracked on <a class="reference external" href="https://github.com/OCA/l10n-spain/issues">GitHub Issues</a>.
+In case of trouble, please check there if your issue has already been reported.
+If you spotted it first, help us to smash it by providing a detailed and welcomed
+<a class="reference external" href="https://github.com/OCA/l10n-spain/issues/new?body=module:%20l10n_es_deca%0Aversion:%2018.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**">feedback</a>.</p>
+<p>Do not contact contributors directly about support or help with technical issues.</p>
+</div>
+<div class="section" id="credits">
+<h1>Credits</h1>
+<div class="section" id="authors">
+<h2>Authors</h2>
+<ul class="simple">
+<li>Grupo Isonor</li>
+</ul>
+</div>
+<div class="section" id="contributors">
+<h2>Contributors</h2>
+<ul class="simple">
+<li>Grupo Isonor<ul>
+<li>David Palanca <a class="reference external" href="mailto:david.palanca&#64;grupoisonor.es">david.palanca&#64;grupoisonor.es</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="maintainers">
+<h2>Maintainers</h2>
+<p>This module is maintained by the OCA.</p>
+<a class="reference external image-reference" href="https://odoo-community.org">
+<img alt="Odoo Community Association" src="https://odoo-community.org/logo.png" />
+</a>
+<p>OCA, or the Odoo Community Association, is a nonprofit organization whose
+mission is to support the collaborative development of Odoo features and
+promote its widespread use.</p>
+<p>This module is part of the <a class="reference external" href="https://github.com/OCA/l10n-spain/tree/18.0/l10n_es_deca">OCA/l10n-spain</a> project on GitHub.</p>
+<p>You are welcome to contribute. To learn how please visit <a class="reference external" href="https://odoo-community.org/page/Contribute">https://odoo-community.org/page/Contribute</a>.</p>
+</div>
+</div>
+</div>
+</body>
+</html>

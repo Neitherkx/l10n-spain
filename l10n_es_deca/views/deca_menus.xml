@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 Grupo Isonor - David Palanca
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+    <menuitem
+    id="menu_deca_root"
+    name="DeCA"
+    parent="stock.menu_stock_root"
+    sequence="5"
+    groups="l10n_es_deca.group_deca_readonly"
+  />
+
+    <menuitem
+    id="menu_deca_documents"
+    name="Documents"
+    parent="menu_deca_root"
+    action="action_deca"
+    sequence="1"
+  />
+
+    <menuitem
+    id="menu_deca_vehicles"
+    name="Vehicles"
+    parent="menu_deca_root"
+    action="action_deca_vehicle"
+    sequence="2"
+  />
+
+    <menuitem
+    id="menu_deca_config"
+    name="DeCA"
+    parent="stock.menu_stock_config_settings"
+    sequence="20"
+    groups="l10n_es_deca.group_deca_manager"
+  />
+
+    <menuitem
+    id="menu_deca_config_vehicles"
+    name="Vehicles"
+    parent="menu_deca_config"
+    action="action_deca_vehicle"
+    sequence="1"
+  />
+
+    <record id="action_deca_start_tour" model="ir.actions.client">
+        <field name="name">DeCA guided tour</field>
+        <field name="tag">l10n_es_deca_start_tour</field>
+        <field name="target">main</field>
+    </record>
+
+    <menuitem
+    id="menu_deca_onboarding_tour"
+    name="DeCA guided tour"
+    parent="menu_deca_config"
+    action="action_deca_start_tour"
+    sequence="9"
+    groups="l10n_es_deca.group_deca_user"
+  />
+
+</odoo>

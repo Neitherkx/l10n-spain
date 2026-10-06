@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 Grupo Isonor - David Palanca
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+    <!-- The steps live in the JS registry; this record makes the tour
+         discoverable, re-launchable and consumable per user. -->
+    <record id="tour_deca_onboarding" model="web_tour.tour">
+        <field name="name">l10n_es_deca_onboarding</field>
+        <field name="url">/odoo</field>
+        <field name="sequence">10</field>
+        <field
+      name="rainbow_man_message"
+    >&lt;b&gt;That is the whole DeCA flow.&lt;/b&gt; And if you would rather carry your own delivery note, a draft DeCA turns it into the document with &lt;b&gt;Convert document to DeCA&lt;/b&gt;. You can replay this guide any time from Inventory &gt; Configuration &gt; DeCA guided tour.</field>
+    </record>
+
+
+</odoo>

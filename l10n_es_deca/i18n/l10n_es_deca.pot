@@ -1,0 +1,2293 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* l10n_es_deca
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-05 14:13+0000\n"
+"PO-Revision-Date: 2026-10-05 14:13+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: l10n_es_deca
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.report_deca_page
+msgid "(a) Contractual shipper"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.report_deca_page
+msgid "(b) Effective carrier"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.report_deca_page
+msgid "(c) Destination"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.report_deca_page
+msgid "(c) Origin"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.report_deca_page
+msgid "(d) Nature"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.report_deca_page
+msgid "(d) Weight/Magnitude"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.report_deca_page
+msgid "(e) Notes"
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-python
+#: code:addons/l10n_es_deca/wizards/deca_modify_wizard.py:0
+msgid "(empty)"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.report_deca_page
+msgid "(f) Date"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.report_deca_page
+msgid "(g) Vehicle"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.view_deca_vehicle_form
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.view_partner_form_deca
+msgid "1234ABC"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:mail.template,body_html:l10n_es_deca.mail_template_deca_issued
+msgid ""
+"<div style=\"margin:0px;padding:0px;font-size:13px;\">\n"
+"                <p>Dear Sir or Madam,</p>\n"
+"                <p>\n"
+"                    The Electronic Administrative Control Document\n"
+"                    <strong t-out=\"object.name\">DECA/2026/00001</strong>\n"
+"                    has been issued for the transport scheduled on\n"
+"                    <strong t-out=\"format_date(object.transport_date)\">09/21/2026</strong>.\n"
+"                </p>\n"
+"                <ul>\n"
+"                    <li>Contractual shipper: <t t-out=\"object.shipper_id.name\"/> (<t t-out=\"object.shipper_vat\"/>)</li>\n"
+"                    <li>Effective carrier: <t t-out=\"object.carrier_id.name\"/> (<t t-out=\"object.carrier_vat\"/>)</li>\n"
+"                    <li>Tractor plate: <t t-out=\"object.tractor_plate_id.name or '-'\"/></li>\n"
+"                    <li>Trailer plate: <t t-out=\"object.trailer_plate_id.name or '-'\"/></li>\n"
+"                </ul>\n"
+"                <p>\n"
+"                    The document can be downloaded without identification from the\n"
+"                    following link, the same one encoded in the QR printed on the PDF:\n"
+"                    <br/>\n"
+"                    <a t-att-href=\"object.public_url\" t-out=\"object.public_url\">link</a>\n"
+"                </p>\n"
+"                <p>\n"
+"                    SHA-256 fingerprint of the PDF: <span t-out=\"object.pdf_sha256\"/>\n"
+"                </p>\n"
+"                <p>\n"
+"                    Public access will be closed automatically on\n"
+"                    <t t-out=\"format_date(object.access_close_date)\"/>,\n"
+"                    seven calendar days after the end of the service.\n"
+"                </p>\n"
+"                <p><t t-out=\"object.company_id.name\"/></p>\n"
+"            </div>\n"
+"        "
+msgstr ""
+
+#. module: l10n_es_deca
+#: model_terms:web_tour.tour,rainbow_man_message:l10n_es_deca.tour_deca_onboarding
+msgid ""
+"<span><b>That is the whole DeCA flow.</b> And if you would rather carry your"
+" own delivery note, a draft DeCA turns it into the document with <b>Convert "
+"document to DeCA</b>. You can replay this guide any time from Inventory &gt;"
+" Configuration &gt; DeCA guided tour.</span>"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.deca_public_closed
+msgid "<strong>Public access to this DeCA is closed.</strong>"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.deca_public_cancelled
+msgid "<strong>This DeCA has been cancelled.</strong>"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.deca_public_replaced
+msgid "<strong>This DeCA has been replaced by another document.</strong>"
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-python
+#: code:addons/l10n_es_deca/models/res_partner.py:0
+msgid ""
+"A DeCA carrier needs a tax ID: it is mandatory data of the document (%s)."
+msgstr ""
+
+#. module: l10n_es_deca
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.deca_public_replaced
+msgid ""
+"A new document was issued for this same transport (Method B, section\n"
+"                Quinto.2 of the Resolution). The document in force is the following:"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.module.category,description:l10n_es_deca.module_category_deca
+msgid "Access levels to the Electronic Administrative Control Document."
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca__access_log_ids
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.view_deca_form
+msgid "Access log"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_vehicle__active
+msgid "Active"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_stock_picking__deca_id
+msgid "Active DeCA"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca__activity_ids
+msgid "Activities"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca__activity_state
+msgid "Activity State"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca__activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:res.groups,name:l10n_es_deca.group_deca_manager
+msgid "Administrator"
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-python
+#: code:addons/l10n_es_deca/models/deca_document.py:0
+msgid ""
+"All the deliveries of a DeCA must belong to the company issuing it (%s)."
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-python
+#: code:addons/l10n_es_deca/models/deca_document.py:0
+msgid ""
+"An issued DeCA must be kept for at least one year and cannot be deleted "
+"(%s)."
+msgstr ""
+
+#. module: l10n_es_deca
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.view_deca_modify_wizard_form
+msgid "Apply"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.view_deca_vehicle_form
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.view_deca_vehicle_search
+msgid "Archived"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_stock_picking__deca_received_file
+msgid "Attach DeCA"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.view_picking_form_deca
+msgid "Attach DeCA:"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields.selection,name:l10n_es_deca.selection__stock_picking__deca_state__attached
+msgid "Attached"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca__message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.report_deca_page
+msgid "Authorization:"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:res.groups,comment:l10n_es_deca.group_deca_manager
+msgid "Can also cancel a DeCA and configure domains."
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:res.groups,comment:l10n_es_deca.group_deca_readonly
+msgid "Can consult the DeCA but neither create nor issue them."
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:res.groups,comment:l10n_es_deca.group_deca_user
+msgid "Can generate, issue and modify DeCA."
+msgstr ""
+
+#. module: l10n_es_deca
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.view_deca_modify_wizard_form
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.view_deca_reissue_wizard_form
+msgid "Cancel"
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-python
+#: code:addons/l10n_es_deca/models/deca_document.py:0
+#: model:ir.model,name:l10n_es_deca.model_l10n_es_deca_cancel_wizard
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.view_deca_cancel_wizard_form
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.view_deca_form
+msgid "Cancel DeCA"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca__cancel_date
+msgid "Cancellation date"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.deca_public_cancelled
+msgid "Cancellation date:"
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-python
+#: code:addons/l10n_es_deca/wizards/deca_cancel_wizard.py:0
+msgid ""
+"Cancellation is only possible if the service never starts. The transport "
+"date of %s has already been reached: use 'Register modification' (Method A) "
+"or 'Reissue DeCA' (Method B)."
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca__cancel_reason
+msgid "Cancellation reason"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields.selection,name:l10n_es_deca.selection__l10n_es_deca__state__cancelled
+#: model:ir.model.fields.selection,name:l10n_es_deca.selection__stock_picking__deca_state__cancelled
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.view_deca_form
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.view_deca_search
+msgid "Cancelled"
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-python
+#: code:addons/l10n_es_deca/models/deca_document.py:0
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca__carrier_id
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_modify_wizard__carrier_id
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_vehicle__partner_id
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.view_deca_form
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.view_deca_search
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.view_deca_vehicle_search
+msgid "Carrier"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca__carrier_address
+msgid "Carrier address"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca__carrier_vat
+msgid "Carrier tax ID"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.view_deca_cancel_wizard_form
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.view_deca_own_document_form
+msgid "Close"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields.selection,name:l10n_es_deca.selection__l10n_es_deca__state__closed
+#: model:ir.model.fields.selection,name:l10n_es_deca.selection__stock_picking__deca_state__closed
+msgid "Closed"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model,name:l10n_es_deca.model_res_company
+msgid "Companies"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca__company_id
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_vehicle__company_id
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.view_deca_vehicle_search
+msgid "Company"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model,name:l10n_es_deca.model_res_config_settings
+msgid "Config Settings"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model,name:l10n_es_deca.model_res_partner
+msgid "Contact"
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-python
+#: code:addons/l10n_es_deca/models/deca_vehicle.py:0
+msgid ""
+"Contact %s is not flagged as a DeCA Carrier, so it cannot have plates "
+"assigned."
+msgstr ""
+
+#. module: l10n_es_deca
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.report_deca_page
+msgid ""
+"Content compliant with section Segundo of the Resolution of 5 June\n"
+"                    2026 of the Directorate-General for Land Transport\n"
+"                    (BOE-A-2026-12784) and with article 6 of Order FOM/2861/2012."
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-python
+#: code:addons/l10n_es_deca/models/deca_document.py:0
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.view_deca_form
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.view_deca_own_document_form
+msgid "Convert document to DeCA"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model,name:l10n_es_deca.model_l10n_es_deca_own_document
+msgid "Convert your own document into a DeCA"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,help:l10n_es_deca.field_stock_picking__deca_received_file
+msgid ""
+"Copy of the DeCA handed over by the carrier when receiving the goods. On a "
+"receipt the DeCA is never generated: that obligation belongs to the sender."
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca__create_uid
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_access_log__create_uid
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_cancel_wizard__create_uid
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_change__create_uid
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_line__create_uid
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_modify_wizard__create_uid
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_own_document__create_uid
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_reissue_wizard__create_uid
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_vehicle__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca__create_date
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_access_log__create_date
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_cancel_wizard__create_date
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_change__create_date
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_line__create_date
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_modify_wizard__create_date
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_own_document__create_date
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_reissue_wizard__create_date
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_vehicle__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_change__field_label
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.report_deca_page
+msgid "Data"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_access_log__access_date
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_change__change_date
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.report_deca_page
+msgid "Date"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.actions.act_window,name:l10n_es_deca.action_deca
+#: model:ir.actions.report,name:l10n_es_deca.action_report_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_access_log__deca_id
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_change__deca_id
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_line__deca_id
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_own_document__deca_id
+#: model:ir.model.fields,field_description:l10n_es_deca.field_stock_picking__deca_state
+#: model:ir.ui.menu,name:l10n_es_deca.menu_deca_config
+#: model:ir.ui.menu,name:l10n_es_deca.menu_deca_root
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.res_config_settings_view_form_deca
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.view_deca_form
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.view_deca_list
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.view_deca_search
+msgid "DeCA"
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-python
+#: code:addons/l10n_es_deca/models/stock_picking.py:0
+msgid "DeCA %s generated for this delivery."
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-python
+#: code:addons/l10n_es_deca/models/stock_picking.py:0
+msgid ""
+"DeCA %s generated grouping this delivery with others (section Sexto.1)."
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-python
+#: code:addons/l10n_es_deca/models/deca_document.py:0
+msgid "DeCA %s has already been issued."
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-python
+#: code:addons/l10n_es_deca/models/deca_document.py:0
+msgid "DeCA - %s"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_res_company__deca_carrier
+#: model:ir.model.fields,field_description:l10n_es_deca.field_res_partner__deca_carrier
+#: model:ir.model.fields,field_description:l10n_es_deca.field_res_users__deca_carrier
+#: model:ir.model.fields,field_description:l10n_es_deca.field_stock_picking__deca_carrier_id
+msgid "DeCA Carrier"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.view_partner_filter_deca
+msgid "DeCA Carriers"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model,name:l10n_es_deca.model_l10n_es_deca_change
+msgid "DeCA En-Route Modification (Method A)"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model,name:l10n_es_deca.model_l10n_es_deca_access_log
+msgid "DeCA Public Access Log"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model,name:l10n_es_deca.model_l10n_es_deca_line
+msgid "DeCA Shipment Line"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.module.category,name:l10n_es_deca.module_category_deca
+msgid "DeCA Spain"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model,name:l10n_es_deca.model_l10n_es_deca_vehicle
+msgid "DeCA Vehicle (tractor or trailer plate)"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.actions.act_window,name:l10n_es_deca.action_deca_vehicle
+msgid "DeCA Vehicles"
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-python
+#: code:addons/l10n_es_deca/wizards/deca_cancel_wizard.py:0
+msgid ""
+"DeCA cancelled. Reason: %s. The PDF and the token are kept due to the "
+"retention obligation, but the public link stops serving the file."
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_stock_picking__deca_ids
+msgid "DeCA documents"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.report_deca_page
+msgid "DeCA download QR code"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_stock_picking__deca_received_filename
+msgid "DeCA file name"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.actions.act_url,name:l10n_es_deca.action_deca_onboarding_tour
+#: model:ir.actions.client,name:l10n_es_deca.action_deca_start_tour
+#: model:ir.ui.menu,name:l10n_es_deca.menu_deca_onboarding_tour
+msgid "DeCA guided tour"
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-python
+#: code:addons/l10n_es_deca/models/deca_document.py:0
+msgid "DeCA issued. SHA-256: %(hash)s. Public URL: %(url)s"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_res_company__deca_public_domain
+#: model:ir.model.fields,field_description:l10n_es_deca.field_res_config_settings__deca_public_domain
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.res_config_settings_view_form_deca
+msgid "DeCA public domain"
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-python
+#: code:addons/l10n_es_deca/models/stock_picking.py:0
+msgid "DeCA received from the carrier, archived for this receipt."
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-python
+#: code:addons/l10n_es_deca/models/deca_document.py:0
+msgid "DeCA sent by email to: %s"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:mail.template,subject:l10n_es_deca.mail_template_deca_issued
+msgid "DeCA {{ object.name }} - {{ object.company_id.name }}"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.actions.server,name:l10n_es_deca.cron_deca_close_public_access_ir_actions_server
+msgid "DeCA: close the expired public access"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:mail.template,name:l10n_es_deca.mail_template_deca_issued
+msgid "DeCA: issued document"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.actions.server,name:l10n_es_deca.cron_deca_purge_access_logs_ir_actions_server
+msgid "DeCA: purge access records older than one year"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_cancel_wizard__deca_id
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_modify_wizard__deca_id
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_reissue_wizard__deca_id
+msgid "Deca"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_res_partner__deca_vehicle_count
+#: model:ir.model.fields,field_description:l10n_es_deca.field_res_users__deca_vehicle_count
+msgid "Deca Vehicle Count"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.res_config_settings_view_form_deca
+msgid "Default QR placement on your own document"
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-python
+#: code:addons/l10n_es_deca/models/deca_document.py:0
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca__picking_ids
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.view_deca_form
+msgid "Deliveries"
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-python
+#: code:addons/l10n_es_deca/models/deca_document.py:0
+msgid ""
+"Deliveries %(pickings)s are already covered by DeCA %(deca)s. A delivery "
+"cannot be covered by two active DeCA at the same time."
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-python
+#: code:addons/l10n_es_deca/models/stock_picking.py:0
+msgid "Deliveries %s are already covered by an active DeCA."
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca__pickings_changed
+msgid "Deliveries changed after issuance"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_line__picking_id
+msgid "Delivery"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_line__destination_address
+msgid "Destination"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca__display_name
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_access_log__display_name
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_cancel_wizard__display_name
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_change__display_name
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_line__display_name
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_modify_wizard__display_name
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_own_document__display_name
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_reissue_wizard__display_name
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_vehicle__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,help:l10n_es_deca.field_l10n_es_deca__qr_position_x
+#: model:ir.model.fields,help:l10n_es_deca.field_res_company__deca_qr_position_x
+#: model:ir.model.fields,help:l10n_es_deca.field_res_config_settings__deca_qr_position_x
+msgid "Distance from the left edge, as a percentage of the page width."
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,help:l10n_es_deca.field_l10n_es_deca__qr_position_y
+#: model:ir.model.fields,help:l10n_es_deca.field_res_company__deca_qr_position_y
+#: model:ir.model.fields,help:l10n_es_deca.field_res_config_settings__deca_qr_position_y
+msgid "Distance from the top edge, as a percentage of the page height."
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca__custom_pdf
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_own_document__document
+msgid "Document"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.ui.menu,name:l10n_es_deca.menu_deca_documents
+msgid "Documents"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.deca_public_replaced
+msgid "Download the DeCA in force"
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-python
+#: code:addons/l10n_es_deca/models/deca_document.py:0
+#: model:ir.model.fields.selection,name:l10n_es_deca.selection__l10n_es_deca__state__draft
+#: model:ir.model.fields.selection,name:l10n_es_deca.selection__stock_picking__deca_state__draft
+msgid "Draft"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.view_picking_internal_search_deca
+msgid "Draft DeCA"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.view_deca_search
+msgid "Drafts"
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-javascript
+#: code:addons/l10n_es_deca/static/src/js/deca_qr_configure.xml:0
+msgid ""
+"Drag the QR box where you want it, or pull its bottom-right\n"
+"                        corner to resize it."
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,help:l10n_es_deca.field_stock_picking__deca_carrier_id
+msgid ""
+"Effective carrier performing the haulage. The company itself is proposed "
+"automatically when it has its own fleet."
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model,name:l10n_es_deca.model_l10n_es_deca
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.report_deca_page
+msgid "Electronic Administrative Control Document (DeCA)"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,help:l10n_es_deca.field_res_company__deca_carrier
+#: model:ir.model.fields,help:l10n_es_deca.field_res_config_settings__deca_carrier
+msgid ""
+"Enable it if your own company performs the transport (own fleet). The DeCA "
+"will then default the carrier to the company data."
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,help:l10n_es_deca.field_l10n_es_deca__service_end_date
+msgid ""
+"Expected end date of the service. Public access to the document is closed "
+"automatically 7 calendar days later (section Tercero.5)."
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_modify_wizard__field_name
+msgid "Field to modify"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.view_deca_form
+msgid "File"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca__custom_pdf_filename
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_own_document__document_filename
+msgid "File name"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,help:l10n_es_deca.field_l10n_es_deca__pdf_sha256
+msgid ""
+"Fingerprint of the PDF at the time of its issuance or last modification. It "
+"proves that the document has not been altered."
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,help:l10n_es_deca.field_res_partner__deca_carrier
+#: model:ir.model.fields,help:l10n_es_deca.field_res_users__deca_carrier
+msgid ""
+"Flag this contact as an effective carrier for DeCA purposes. You will be "
+"able to select it on deliveries and manage its plate catalogue in the "
+"Vehicles tab."
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,help:l10n_es_deca.field_l10n_es_deca__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.actions.server,name:l10n_es_deca.action_picking_generate_deca
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.view_picking_form_deca
+msgid "Generate DeCA"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.view_deca_search
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.view_deca_vehicle_search
+msgid "Group By"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca__is_grouped
+msgid "Grouped"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.view_deca_search
+msgid "Grouped (section Sexto.1)"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca__has_message
+msgid "Has Message"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca__id
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_access_log__id
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_cancel_wizard__id
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_change__id
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_line__id
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_modify_wizard__id
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_own_document__id
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_reissue_wizard__id
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_vehicle__id
+msgid "ID"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_access_log__ip_address
+msgid "IP address"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,help:l10n_es_deca.field_l10n_es_deca__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,help:l10n_es_deca.field_l10n_es_deca__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,help:l10n_es_deca.field_l10n_es_deca__message_has_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-python
+#: code:addons/l10n_es_deca/models/deca_document.py:0
+msgid "Integrity check"
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-python
+#: code:addons/l10n_es_deca/models/deca_document.py:0
+msgid ""
+"Integrity verified: the archived PDF matches exactly the SHA-256 fingerprint"
+" recorded at issuance time."
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.view_deca_form
+msgid "Issue"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca__issue_date
+msgid "Issue date"
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-javascript
+#: code:addons/l10n_es_deca/static/src/js/deca_tour.esm.js:0
+msgid ""
+"Issue it when everything is right. Odoo freezes the PDF, stamps its SHA-256 "
+"fingerprint and publishes the link behind the QR code."
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields.selection,name:l10n_es_deca.selection__l10n_es_deca__state__issued
+#: model:ir.model.fields.selection,name:l10n_es_deca.selection__stock_picking__deca_state__issued
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.view_deca_form
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.view_deca_search
+msgid "Issued"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.view_picking_internal_search_deca
+msgid "Issued DeCA"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca__pdf_attachment_id
+msgid "Issued PDF"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca__write_uid
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_access_log__write_uid
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_cancel_wizard__write_uid
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_change__write_uid
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_line__write_uid
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_modify_wizard__write_uid
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_own_document__write_uid
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_reissue_wizard__write_uid
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_vehicle__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca__write_date
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_access_log__write_date
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_cancel_wizard__write_date
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_change__write_date
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_line__write_date
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_modify_wizard__write_date
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_own_document__write_date
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_reissue_wizard__write_date
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_vehicle__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,help:l10n_es_deca.field_l10n_es_deca_vehicle__company_id
+msgid "Leave it empty to share the plate across all companies."
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,help:l10n_es_deca.field_res_company__deca_public_domain
+#: model:ir.model.fields,help:l10n_es_deca.field_res_config_settings__deca_public_domain
+msgid ""
+"Leave it empty unless a reverse proxy publishes this company's DeCA under a "
+"different domain name (for example deca.mycompany.es). By default the "
+"instance's own domain (web.base.url) is used, which is what answers "
+"/deca/<token>."
+msgstr ""
+
+#. module: l10n_es_deca
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.res_config_settings_view_form_deca
+msgid ""
+"Leave it empty unless a reverse proxy publishes this company's DeCA under a "
+"different domain name. By default the instance's own domain is used, which "
+"is what answers /deca/<token>."
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-javascript
+#: code:addons/l10n_es_deca/static/src/js/deca_tour.esm.js:0
+msgid "Let us issue a DeCA from end to end. Open the apps menu."
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca__lines_fingerprint
+msgid "Lines Fingerprint"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.view_partner_form_deca
+msgid "MDP-N / MDL-N"
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-python
+#: code:addons/l10n_es_deca/models/deca_document.py:0
+msgid "Mandatory data missing to issue the DeCA: %s."
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_access_log__method
+msgid "Method"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca__missing_issue_data
+msgid "Missing data"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca__change_ids
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.view_deca_form
+msgid "Modification history"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.report_deca_page
+msgid "Modification history (Method A)"
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-python
+#: code:addons/l10n_es_deca/wizards/deca_modify_wizard.py:0
+msgid ""
+"Modification registered (Method A) on %(label)s: %(old)s -> %(new)s. Reason:"
+" %(reason)s. New SHA-256: %(hash)s"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields.selection,name:l10n_es_deca.selection__l10n_es_deca__state__modified
+msgid "Modified"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.deca_public_closed
+msgid ""
+"More than seven calendar days have elapsed since the end of the\n"
+"                service, so the public download is disabled (section Tercero.5 of the\n"
+"                Resolution)."
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-python
+#: code:addons/l10n_es_deca/models/deca_document.py:0
+msgid "Nature and weight of the goods"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_line__nature
+msgid "Nature of the goods"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_modify_wizard__new_note
+msgid "New notes"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_modify_wizard__new_service_end_date
+msgid "New service end date"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_modify_wizard__new_tractor_plate_id
+msgid "New tractor plate"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_modify_wizard__new_trailer_plate_id
+msgid "New trailer plate"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_modify_wizard__new_transport_date
+msgid "New transport date"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_change__new_value
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.report_deca_page
+msgid "New value"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model_terms:ir.actions.act_window,help:l10n_es_deca.action_deca
+msgid "No DeCA yet"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields.selection,name:l10n_es_deca.selection__stock_picking__deca_state__not_attached
+msgid "Not attached"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields.selection,name:l10n_es_deca.selection__stock_picking__deca_state__not_generated
+msgid "Not generated"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields.selection,name:l10n_es_deca.selection__stock_picking__deca_state__not_required
+msgid "Not required"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca__note
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_vehicle__note
+#: model:ir.model.fields.selection,name:l10n_es_deca.selection__l10n_es_deca_modify_wizard__field_name__note
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.view_deca_form
+msgid "Notes"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.view_deca_form
+msgid "Notes that must appear on the document..."
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca__name
+msgid "Number"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,help:l10n_es_deca.field_l10n_es_deca__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,help:l10n_es_deca.field_l10n_es_deca__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,help:l10n_es_deca.field_l10n_es_deca__carrier_authorization
+#: model:ir.model.fields,help:l10n_es_deca.field_res_partner__deca_authorization
+#: model:ir.model.fields,help:l10n_es_deca.field_res_users__deca_authorization
+msgid "Number of the carrier's transport card (MDP/MDL)."
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-python
+#: code:addons/l10n_es_deca/models/deca_document.py:0
+#: code:addons/l10n_es_deca/wizards/deca_cancel_wizard.py:0
+msgid "Only a DeCA Administrator can cancel a document."
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-python
+#: code:addons/l10n_es_deca/models/deca_document.py:0
+#: code:addons/l10n_es_deca/wizards/deca_cancel_wizard.py:0
+msgid "Only an issued DeCA can be cancelled."
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-python
+#: code:addons/l10n_es_deca/models/deca_document.py:0
+#: code:addons/l10n_es_deca/wizards/deca_reissue_wizard.py:0
+msgid "Only an issued DeCA can be reissued."
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-python
+#: code:addons/l10n_es_deca/models/deca_document.py:0
+#: code:addons/l10n_es_deca/wizards/deca_modify_wizard.py:0
+msgid "Only an issued or already modified DeCA can be modified."
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-python
+#: code:addons/l10n_es_deca/models/deca_document.py:0
+msgid ""
+"Only deliveries sharing shipper and carrier can be grouped in the same DeCA "
+"(section Sexto.1). The selected deliveries have different carriers: %s."
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-python
+#: code:addons/l10n_es_deca/models/stock_picking.py:0
+msgid ""
+"Only deliveries sharing shipper and carrier can be grouped in the same DeCA "
+"(section Sexto.1). You selected deliveries with different carriers: %s."
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-javascript
+#: code:addons/l10n_es_deca/static/src/js/deca_tour.esm.js:0
+msgid "Open the operations menu."
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_line__origin_address
+msgid "Origin"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,help:l10n_es_deca.field_l10n_es_deca__replaced_deca_id
+msgid "Original document replaced by this DeCA (Method B)."
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,help:l10n_es_deca.field_l10n_es_deca__picking_ids
+msgid ""
+"Outgoing deliveries covered by this DeCA. Several deliveries can only be "
+"grouped (section Sexto.1) if they share shipper and carrier. They may be "
+"left empty when the document to be carried is your own file instead of the "
+"one Odoo builds from the deliveries."
+msgstr ""
+
+#. module: l10n_es_deca
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.view_deca_form
+msgid "Own document"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.res_config_settings_view_form_deca
+msgid "Own fleet"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_res_config_settings__deca_carrier
+msgid "Own fleet (DeCA Carrier)"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.view_deca_form
+msgid "PDF"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca__pdf_sha256
+msgid "PDF SHA-256"
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-javascript
+#: code:addons/l10n_es_deca/static/src/js/deca_qr_configure.xml:0
+msgid "Page"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,help:l10n_es_deca.field_res_company__deca_qr_page
+#: model:ir.model.fields,help:l10n_es_deca.field_res_config_settings__deca_qr_page
+msgid "Page of the uploaded PDF the QR code is stamped on by default."
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca__custom_pdf_page_count
+msgid "Pages"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.view_deca_own_document_form
+msgid ""
+"Pick your own document and the DeCA QR code will be stamped\n"
+"                    on it. The stamped file replaces the one Odoo generates: it\n"
+"                    is the one carried in the vehicle and the one the authority\n"
+"                    downloads from the public link. You will be able to drag the\n"
+"                    QR wherever you want right after confirming."
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca__picking_count
+msgid "Picking Count"
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-python
+#: code:addons/l10n_es_deca/models/deca_document.py:0
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.view_deca_form
+msgid "Place the QR code"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_vehicle__name
+msgid "Plate"
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-python
+#: code:addons/l10n_es_deca/models/deca_document.py:0
+msgid ""
+"Plate %(plate)s belongs to company %(owner)s and cannot be used in a DeCA of"
+" %(company)s."
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-python
+#: code:addons/l10n_es_deca/models/deca_document.py:0
+msgid "Plate %(plate)s does not belong to carrier %(carrier)s."
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-python
+#: code:addons/l10n_es_deca/models/deca_document.py:0
+msgid "Plate %(plate)s is not a %(label)s."
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,help:l10n_es_deca.field_l10n_es_deca_vehicle__name
+msgid "Plate number as it must appear on the DeCA."
+msgstr ""
+
+#. module: l10n_es_deca
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.view_deca_form
+msgid "Preview stamped PDF"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_change__old_value
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.report_deca_page
+msgid "Previous value"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_line__product_id
+msgid "Product"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca__public_url
+msgid "Public URL"
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-python
+#: code:addons/l10n_es_deca/models/deca_document.py:0
+msgid ""
+"Public access closed automatically: %s calendar days have elapsed since the "
+"end of the service (section Tercero.5). The document is kept indefinitely."
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca__access_close_date
+msgid "Public access closing date"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca__token
+msgid "Public token"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca__qr_image
+msgid "QR code"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca__qr_position_x
+#: model:ir.model.fields,field_description:l10n_es_deca.field_res_company__deca_qr_position_x
+#: model:ir.model.fields,field_description:l10n_es_deca.field_res_config_settings__deca_qr_position_x
+msgid "QR horizontal position"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca__qr_page
+#: model:ir.model.fields,field_description:l10n_es_deca.field_res_company__deca_qr_page
+#: model:ir.model.fields,field_description:l10n_es_deca.field_res_config_settings__deca_qr_page
+msgid "QR page"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.view_deca_form
+msgid "QR placement"
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-javascript
+#: code:addons/l10n_es_deca/static/src/js/deca_qr_configure.esm.js:0
+msgid "QR position saved."
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-python
+#: code:addons/l10n_es_deca/models/deca_document.py:0
+msgid "QR preview - %s.pdf"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca__qr_size
+#: model:ir.model.fields,field_description:l10n_es_deca.field_res_company__deca_qr_size
+#: model:ir.model.fields,field_description:l10n_es_deca.field_res_config_settings__deca_qr_size
+msgid "QR size"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca__qr_position_y
+#: model:ir.model.fields,field_description:l10n_es_deca.field_res_company__deca_qr_position_y
+#: model:ir.model.fields,field_description:l10n_es_deca.field_res_config_settings__deca_qr_position_y
+msgid "QR vertical position"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_line__quantity
+msgid "Quantity"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca__rating_ids
+msgid "Ratings"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:res.groups,name:l10n_es_deca.group_deca_readonly
+msgid "Read only"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_cancel_wizard__reason
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_change__reason
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_modify_wizard__reason
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_reissue_wizard__reason
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.report_deca_page
+msgid "Reason"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.report_deca_page
+msgid "Reference delivery:"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model,name:l10n_es_deca.model_l10n_es_deca_modify_wizard
+msgid "Register DeCA Modification (Method A)"
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-python
+#: code:addons/l10n_es_deca/models/deca_document.py:0
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.view_deca_modify_wizard_form
+msgid "Register DeCA modification"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.view_deca_form
+msgid "Register modification"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model_terms:ir.actions.act_window,help:l10n_es_deca.action_deca_vehicle
+msgid "Register the first plate"
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-python
+#: code:addons/l10n_es_deca/wizards/deca_reissue_wizard.py:0
+msgid ""
+"Reissuance in progress (Method B): a new draft has been created. Reason: "
+"%(reason)s"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca__reissue_reason
+msgid "Reissuance reason"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.view_deca_reissue_wizard_form
+msgid "Reissue"
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-python
+#: code:addons/l10n_es_deca/models/deca_document.py:0
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.view_deca_form
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.view_deca_reissue_wizard_form
+msgid "Reissue DeCA"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model,name:l10n_es_deca.model_l10n_es_deca_reissue_wizard
+msgid "Reissue DeCA (Method B)"
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-python
+#: code:addons/l10n_es_deca/wizards/deca_reissue_wizard.py:0
+msgid "Reissued from %(origin)s (Method B). Reason: %(reason)s"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields.selection,name:l10n_es_deca.selection__l10n_es_deca__state__replaced
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.view_deca_form
+msgid "Replaced"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca__replacement_deca_id
+msgid "Replaced by"
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-python
+#: code:addons/l10n_es_deca/models/deca_document.py:0
+msgid ""
+"Replaced by %(new)s (Method B). This document is kept untouched for "
+"traceability purposes and its public link redirects to the document in "
+"force."
+msgstr ""
+
+#. module: l10n_es_deca
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.view_deca_form
+msgid ""
+"Replaced document: its PDF and its token are kept untouched for\n"
+"                        traceability purposes, but the public link redirects to the\n"
+"                        document in force."
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca__replaced_deca_id
+msgid "Replaces"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca__activity_user_id
+msgid "Responsible User"
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-javascript
+#: code:addons/l10n_es_deca/static/src/js/deca_qr_configure.xml:0
+msgid "Save"
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-javascript
+#: code:addons/l10n_es_deca/static/src/js/deca_tour.esm.js:0
+msgid ""
+"Say who actually hauls the goods. The DeCA cannot be generated without an "
+"effective carrier."
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-python
+#: code:addons/l10n_es_deca/models/stock_picking.py:0
+msgid ""
+"Select the DeCA Carrier on deliveries %s before generating the document."
+msgstr ""
+
+#. module: l10n_es_deca
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.view_deca_form
+msgid "Send by email"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:mail.template,description:l10n_es_deca.mail_template_deca_issued
+msgid "Sent to the shipper and the carrier when the DeCA is issued."
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-python
+#: code:addons/l10n_es_deca/models/deca_document.py:0
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca__service_end_date
+#: model:ir.model.fields.selection,name:l10n_es_deca.selection__l10n_es_deca_modify_wizard__field_name__service_end_date
+msgid "Service end date"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.view_deca_form
+msgid ""
+"Several deliveries grouped under this DeCA (section\n"
+"                                Sexto.1). The order shown below does not imply any\n"
+"                                order of execution."
+msgstr ""
+
+#. module: l10n_es_deca
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.report_deca_page
+msgid ""
+"Several shipments grouped in this same DeCA (section Sexto.1 of the\n"
+"                    Resolution). The order in which they appear\n"
+"                    <strong>does not imply</strong> any order of execution."
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca__line_ids
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.report_deca_page
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.view_deca_form
+msgid "Shipment"
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-python
+#: code:addons/l10n_es_deca/models/deca_document.py:0
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca__shipper_id
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.view_deca_form
+msgid "Shipper"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca__shipper_address
+msgid "Shipper address"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca__shipper_vat
+msgid "Shipper tax ID"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,help:l10n_es_deca.field_l10n_es_deca__qr_size
+#: model:ir.model.fields,help:l10n_es_deca.field_res_company__deca_qr_size
+#: model:ir.model.fields,help:l10n_es_deca.field_res_config_settings__deca_qr_size
+msgid "Side of the QR square, as a percentage of the page width."
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-javascript
+#: code:addons/l10n_es_deca/static/src/js/deca_qr_configure.xml:0
+msgid "Size %"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.res_config_settings_view_form_deca
+msgid ""
+"Starting position of the QR code when a customer converts their own document"
+" into a DeCA. It can still be dragged document by document. Values are "
+"percentages of the page."
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca__state
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.view_deca_search
+msgid "Status"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,help:l10n_es_deca.field_l10n_es_deca__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_access_log__status_code
+msgid "Status code"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.view_deca_form
+msgid "Still missing to issue this DeCA:"
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-python
+#: code:addons/l10n_es_deca/models/res_partner.py:0
+msgid "Tax ID %(vat)s of %(partner)s is not valid."
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-python
+#: code:addons/l10n_es_deca/models/deca_document.py:0
+msgid ""
+"Tax ID %(vat)s of the %(label)s %(partner)s does not pass the check digit "
+"validation."
+msgstr ""
+
+#. module: l10n_es_deca
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.report_deca_page
+msgid "Tax ID:"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_change__field_name
+msgid "Technical field"
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-python
+#: code:addons/l10n_es_deca/models/deca_document.py:0
+msgid "The %(label)s %(partner)s has no tax ID set."
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-javascript
+#: code:addons/l10n_es_deca/static/src/js/deca_tour.esm.js:0
+msgid ""
+"The DeCA column tells you at a glance which deliveries still have no "
+"document. Open this one."
+msgstr ""
+
+#. module: l10n_es_deca
+#: model_terms:ir.actions.act_window,help:l10n_es_deca.action_deca
+msgid ""
+"The DeCA is generated from the outgoing delivery order itself, with the\n"
+"                \"Generate DeCA\" button."
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-javascript
+#: code:addons/l10n_es_deca/static/src/js/deca_qr_configure.xml:0
+msgid ""
+"The DeCA is no longer a draft, so the QR position cannot be\n"
+"                        changed."
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-python
+#: code:addons/l10n_es_deca/models/stock_picking.py:0
+msgid ""
+"The DeCA is only generated for outgoing deliveries. On a receipt the "
+"obligation belongs to whoever ships the goods: attach the copy handed over "
+"by the carrier."
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-python
+#: code:addons/l10n_es_deca/models/deca_document.py:0
+msgid ""
+"The DeCA is only issued for outgoing deliveries. A receipt never generates a"
+" DeCA: that obligation belongs to whoever ships the goods."
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-javascript
+#: code:addons/l10n_es_deca/static/src/js/deca_tour.esm.js:0
+msgid "The DeCA lives in Inventory, next to the deliveries it covers."
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-python
+#: code:addons/l10n_es_deca/models/deca_change.py:0
+msgid ""
+"The DeCA modification history is immutable (Resolution of 5 June 2026, "
+"section Quinto.1)."
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-python
+#: code:addons/l10n_es_deca/models/deca_document.py:0
+msgid "The DeCA number must be unique within each company."
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-python
+#: code:addons/l10n_es_deca/models/res_company.py:0
+msgid ""
+"The DeCA public domain must be a domain name only (for example "
+"deca.mycompany.es), without path or spaces."
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.constraint,message:l10n_es_deca.constraint_l10n_es_deca_token_unique
+msgid "The DeCA token must be unique."
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-python
+#: code:addons/l10n_es_deca/models/deca_document.py:0
+msgid "The QR code can only be moved while the DeCA is a draft."
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-python
+#: code:addons/l10n_es_deca/models/deca_document.py:0
+msgid "The QR code is placed on page %(page)s but the PDF only has %(pages)s."
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-python
+#: code:addons/l10n_es_deca/models/deca_document.py:0
+msgid "The QR position must stay inside the page."
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-python
+#: code:addons/l10n_es_deca/models/deca_document.py:0
+msgid "The QR size must be between 1%% and 50%% of the page width."
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,help:l10n_es_deca.field_l10n_es_deca__carrier_vat
+#: model:ir.model.fields,help:l10n_es_deca.field_l10n_es_deca__shipper_vat
+msgid ""
+"The Tax Identification Number. Values here will be validated based on the "
+"country format. You can use '/' to indicate that the partner is not subject "
+"to tax."
+msgstr ""
+
+#. module: l10n_es_deca
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.view_deca_form
+msgid ""
+"The deliveries covered by this DeCA have changed since it was\n"
+"                        issued. Register the modification (Method A) or reissue it\n"
+"                        (Method B) so that the document reflects what is actually being\n"
+"                        transported."
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-python
+#: code:addons/l10n_es_deca/models/deca_document.py:0
+msgid ""
+"The deliveries of an already issued DeCA cannot be changed (%s). Use "
+"'Reissue DeCA' (Method B)."
+msgstr ""
+
+#. module: l10n_es_deca
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.deca_public_closed
+msgid ""
+"The document is kept indefinitely and can be requested from the\n"
+"                shipper or the carrier."
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-javascript
+#: code:addons/l10n_es_deca/static/src/js/deca_tour.esm.js:0
+msgid ""
+"The document is only issued for deliveries: a receipt never generates one."
+msgstr ""
+
+#. module: l10n_es_deca
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.deca_public_replaced
+msgid ""
+"The document replacing it is not publicly available yet. Request it\n"
+"                from the shipper or the carrier."
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-python
+#: code:addons/l10n_es_deca/models/deca_document.py:0
+msgid "The file uploaded on DeCA %s is not a readable PDF."
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-python
+#: code:addons/l10n_es_deca/models/deca_document.py:0
+msgid ""
+"The generated PDF takes %(size).2f MB and exceeds the 5 MB limit set by "
+"section Segundo.1 of the Resolution."
+msgstr ""
+
+#. module: l10n_es_deca
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.view_deca_form
+msgid ""
+"The lines mirror the delivery: to change them, edit the\n"
+"                                delivery itself."
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-python
+#: code:addons/l10n_es_deca/wizards/deca_modify_wizard.py:0
+msgid "The new value matches the current one."
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.constraint,message:l10n_es_deca.constraint_l10n_es_deca_vehicle_plate_unique_per_carrier
+msgid "The plate is already registered for this carrier."
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-python
+#: code:addons/l10n_es_deca/models/deca_document.py:0
+msgid ""
+"The python libraries 'reportlab' and 'qrcode' are required to stamp the QR "
+"code on your own document."
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-python
+#: code:addons/l10n_es_deca/models/deca_document.py:0
+msgid "The service end date cannot be earlier than the transport date."
+msgstr ""
+
+#. module: l10n_es_deca
+#: model_terms:ir.actions.act_window,help:l10n_es_deca.action_deca_vehicle
+msgid ""
+"The tractor unit and trailer plates of each DeCA carrier are chosen\n"
+"                later when generating each document."
+msgstr ""
+
+#. module: l10n_es_deca
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.deca_public_cancelled
+msgid ""
+"The transport service covered by this document was voided before it\n"
+"                started, so the document is no longer available for download."
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-python
+#: code:addons/l10n_es_deca/models/deca_document.py:0
+msgid ""
+"The uploaded PDF exceeds the 5 MB limit set by section Segundo.1 of the "
+"Resolution."
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-javascript
+#: code:addons/l10n_es_deca/static/src/js/deca_tour.esm.js:0
+msgid ""
+"Then generate the document from here. It is created in draft state, so you "
+"can still review it."
+msgstr ""
+
+#. module: l10n_es_deca
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.view_deca_form
+msgid "There is a replacement in progress for this DeCA (Method B)."
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-python
+#: code:addons/l10n_es_deca/models/deca_document.py:0
+msgid ""
+"There is no public domain to serve the DeCA of company %s from. Set the "
+"web.base.url parameter or the DeCA public domain before issuing: otherwise "
+"the QR code of the PDF would point to an invalid URL."
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-python
+#: code:addons/l10n_es_deca/wizards/deca_reissue_wizard.py:0
+msgid "This DeCA already has a replacement: %s."
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-python
+#: code:addons/l10n_es_deca/models/deca_document.py:0
+msgid "This DeCA has no issued PDF yet."
+msgstr ""
+
+#. module: l10n_es_deca
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.view_deca_form
+msgid ""
+"This DeCA is your own document with the QR code\n"
+"                                stamped on it. The stamped file replaces the one\n"
+"                                Odoo generates: it is the one carried in the\n"
+"                                vehicle and the one the authority downloads from\n"
+"                                the public link."
+msgstr ""
+
+#. module: l10n_es_deca
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.view_deca_form
+msgid "This DeCA was issued to replace a previous one (Method B)."
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-python
+#: code:addons/l10n_es_deca/models/stock_picking.py:0
+msgid "This delivery has no DeCA yet."
+msgstr ""
+
+#. module: l10n_es_deca
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.view_deca_modify_wizard_form
+msgid ""
+"This is Method A (Resolution of 5 June 2026, BOE-A-2026-12784,\n"
+"                    section Quinto.1): the new data is added to the existing PDF and\n"
+"                    the previous value stays visible in the document's own change\n"
+"                    history -- same token, same URL, same QR. Use \"Reissue DeCA\"\n"
+"                    (Method B) instead for a fundamental change this method does not\n"
+"                    cover -- for example the shipper itself, not just a plate or a\n"
+"                    note."
+msgstr ""
+
+#. module: l10n_es_deca
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.view_deca_reissue_wizard_form
+msgid ""
+"This is Method B (Resolution of 5 June 2026, BOE-A-2026-12784,\n"
+"                    section Quinto.2): it generates a completely new DeCA, with its\n"
+"                    own token, URL and QR code, for the same deliveries. The current\n"
+"                    document is kept as is (same PDF, same token), but its public link\n"
+"                    will stop serving the file directly and will redirect whoever\n"
+"                    visits it to the new one. Use it only for fundamental changes that\n"
+"                    Method A (\"Register modification\") does not cover."
+msgstr ""
+
+#. module: l10n_es_deca
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.view_deca_cancel_wizard_form
+msgid ""
+"This is not one of the modification methods of the Resolution\n"
+"                    (Method A/B are meant for a service in progress or already\n"
+"                    finished) -- it is meant to void a DeCA whose service never\n"
+"                    starts. The PDF and the token are kept due to the retention\n"
+"                    obligation, but the public link stops serving the file\n"
+"                    immediately. This cannot be undone."
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-javascript
+#: code:addons/l10n_es_deca/static/src/js/deca_tour.esm.js:0
+msgid ""
+"This is the DeCA. Check the data on these tabs: the tractor plate is the one"
+" piece the delivery cannot guess."
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-javascript
+#: code:addons/l10n_es_deca/static/src/js/deca_tour.esm.js:0
+msgid ""
+"This is the address the QR code points at. The inspecting officer opens it "
+"and downloads the document straight from there."
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-python
+#: code:addons/l10n_es_deca/models/deca_document.py:0
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca__tractor_plate_id
+#: model:ir.model.fields.selection,name:l10n_es_deca.selection__l10n_es_deca_modify_wizard__field_name__tractor_plate_id
+msgid "Tractor plate"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.report_deca_page
+msgid "Tractor plate:"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields.selection,name:l10n_es_deca.selection__l10n_es_deca_vehicle__vehicle_type__tractor
+msgid "Tractor unit"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.view_deca_vehicle_search
+msgid "Tractor units"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields.selection,name:l10n_es_deca.selection__l10n_es_deca_vehicle__vehicle_type__trailer
+msgid "Trailer / Semi-trailer"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca__trailer_plate_id
+#: model:ir.model.fields.selection,name:l10n_es_deca.selection__l10n_es_deca_modify_wizard__field_name__trailer_plate_id
+msgid "Trailer plate"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.report_deca_page
+msgid "Trailer plate:"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.view_deca_vehicle_search
+msgid "Trailers"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model,name:l10n_es_deca.model_stock_picking
+msgid "Transfer"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca__carrier_authorization
+#: model:ir.model.fields,field_description:l10n_es_deca.field_res_partner__deca_authorization
+#: model:ir.model.fields,field_description:l10n_es_deca.field_res_users__deca_authorization
+msgid "Transport authorization"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca__transport_date
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_line__transport_date
+#: model:ir.model.fields.selection,name:l10n_es_deca.selection__l10n_es_deca_modify_wizard__field_name__transport_date
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.view_deca_search
+msgid "Transport date"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_vehicle__vehicle_type
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.view_deca_vehicle_search
+msgid "Type"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,help:l10n_es_deca.field_l10n_es_deca__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,help:l10n_es_deca.field_l10n_es_deca__public_url
+msgid ""
+"URL frozen at issuance time: it is the one printed in the QR code of the PDF"
+" and it is never recomputed again."
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_line__product_uom_id
+msgid "Unit of measure"
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-python
+#: code:addons/l10n_es_deca/models/deca_document.py:0
+msgid "Upload your own document before placing the QR code."
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-python
+#: code:addons/l10n_es_deca/models/deca_document.py:0
+msgid "Upload your own document first."
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model,name:l10n_es_deca.model_res_users
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_change__user_id
+#: model:res.groups,name:l10n_es_deca.group_deca_user
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.report_deca_page
+msgid "User"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_access_log__user_agent
+msgid "User agent"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.view_deca_form
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.view_deca_vehicle_form
+msgid "Vehicle"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_res_partner__deca_vehicle_ids
+#: model:ir.model.fields,field_description:l10n_es_deca.field_res_users__deca_vehicle_ids
+#: model:ir.ui.menu,name:l10n_es_deca.menu_deca_config_vehicles
+#: model:ir.ui.menu,name:l10n_es_deca.menu_deca_vehicles
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.view_deca_vehicle_list
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.view_deca_vehicle_search
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.view_partner_form_deca
+msgid "Vehicles"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.report_deca_page
+msgid "Verification"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.view_deca_form
+msgid "Verify integrity"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.view_picking_form_deca
+msgid "View DeCA"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.view_deca_form
+msgid "View the document in force"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.view_deca_form
+msgid "View the original document"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.view_deca_form
+msgid "View the replacement"
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-python
+#: code:addons/l10n_es_deca/models/deca_document.py:0
+msgid ""
+"Warning! The archived PDF does NOT match the recorded fingerprint (expected "
+"%(expected)s, got %(current)s)."
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,help:l10n_es_deca.field_l10n_es_deca__website_message_ids
+msgid "Website communication history"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,field_description:l10n_es_deca.field_l10n_es_deca_line__weight
+msgid "Weight (kg)"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,help:l10n_es_deca.field_l10n_es_deca_reissue_wizard__reason
+msgid "Why this DeCA needs to be reissued instead of modified."
+msgstr ""
+
+#. module: l10n_es_deca
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.view_deca_reissue_wizard_form
+msgid "Why this DeCA needs to be reissued instead of modified..."
+msgstr ""
+
+#. module: l10n_es_deca
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.view_picking_internal_search_deca
+msgid "Without DeCA"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.view_deca_form
+msgid "You can save the draft and fill it in later."
+msgstr ""
+
+#. module: l10n_es_deca
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.res_config_settings_view_form_deca
+msgid ""
+"Your company performs the transport, so it is set as the effective carrier "
+"by default on every delivery."
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-python
+#: code:addons/l10n_es_deca/models/deca_document.py:0
+#: code:addons/l10n_es_deca/wizards/deca_own_document_wizard.py:0
+msgid "Your own document can only be attached while the DeCA is a draft."
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.model.fields,help:l10n_es_deca.field_l10n_es_deca__custom_pdf
+#: model:ir.model.fields,help:l10n_es_deca.field_l10n_es_deca_own_document__document
+msgid ""
+"Your own document in PDF. The DeCA QR code is stamped on it and that stamped"
+" file becomes the document to be carried and the one the authority "
+"downloads, instead of the one Odoo generates."
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-python
+#: code:addons/l10n_es_deca/models/deca_document.py:0
+msgid "carrier"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.view_deca_cancel_wizard_form
+msgid "e.g. The service is not carried out"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.view_deca_modify_wizard_form
+msgid "e.g. Tractor unit breakdown"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.res_config_settings_view_form_deca
+#: model_terms:ir.ui.view,arch_db:l10n_es_deca.view_company_form_deca
+msgid "e.g. deca.mycompany.es"
+msgstr ""
+
+#. module: l10n_es_deca
+#: model:ir.actions.report,print_report_name:l10n_es_deca.action_report_deca
+msgid "object.name.replace('/', '_')"
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-python
+#: code:addons/l10n_es_deca/models/deca_document.py:0
+msgid "shipper"
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-python
+#: code:addons/l10n_es_deca/models/deca_document.py:0
+msgid "tractor unit"
+msgstr ""
+
+#. module: l10n_es_deca
+#. odoo-python
+#: code:addons/l10n_es_deca/models/deca_document.py:0
+msgid "trailer"
+msgstr ""

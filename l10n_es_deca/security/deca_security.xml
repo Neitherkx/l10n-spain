@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 Grupo Isonor - David Palanca
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+    <record id="module_category_deca" model="ir.module.category">
+        <field name="name">DeCA Spain</field>
+        <field
+      name="description"
+    >Access levels to the Electronic Administrative Control Document.</field>
+        <field name="sequence">16</field>
+    </record>
+
+    <record id="group_deca_readonly" model="res.groups">
+        <field name="name">Read only</field>
+        <field name="category_id" ref="module_category_deca" />
+        <field
+      name="comment"
+    >Can consult the DeCA but neither create nor issue them.</field>
+    </record>
+
+    <record id="group_deca_user" model="res.groups">
+        <field name="name">User</field>
+        <field name="category_id" ref="module_category_deca" />
+        <field name="implied_ids" eval="[(4, ref('group_deca_readonly'))]" />
+        <field name="comment">Can generate, issue and modify DeCA.</field>
+    </record>
+
+    <record id="group_deca_manager" model="res.groups">
+        <field name="name">Administrator</field>
+        <field name="category_id" ref="module_category_deca" />
+        <field name="implied_ids" eval="[(4, ref('group_deca_user'))]" />
+        <field
+      name="users"
+      eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"
+    />
+        <field name="comment">Can also cancel a DeCA and configure domains.</field>
+    </record>
+
+    <!-- Any internal user has at least read-only access. -->
+    <record id="base.group_user" model="res.groups">
+        <field name="implied_ids" eval="[(4, ref('group_deca_readonly'))]" />
+    </record>
+
+    <record id="deca_company_rule" model="ir.rule">
+        <field name="name">DeCA: multi-company</field>
+        <field name="model_id" ref="model_l10n_es_deca" />
+        <field
+      name="domain_force"
+    >['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
+        <field name="global" eval="True" />
+    </record>
+
+    <record id="deca_line_company_rule" model="ir.rule">
+        <field name="name">DeCA line: multi-company</field>
+        <field name="model_id" ref="model_l10n_es_deca_line" />
+        <field
+      name="domain_force"
+    >['|', ('deca_id.company_id', '=', False), ('deca_id.company_id', 'in', company_ids)]</field>
+        <field name="global" eval="True" />
+    </record>
+
+    <record id="deca_change_company_rule" model="ir.rule">
+        <field name="name">DeCA modification: multi-company</field>
+        <field name="model_id" ref="model_l10n_es_deca_change" />
+        <field
+      name="domain_force"
+    >['|', ('deca_id.company_id', '=', False), ('deca_id.company_id', 'in', company_ids)]</field>
+        <field name="global" eval="True" />
+    </record>
+
+    <record id="deca_access_log_company_rule" model="ir.rule">
+        <field name="name">DeCA access: multi-company</field>
+        <field name="model_id" ref="model_l10n_es_deca_access_log" />
+        <field
+      name="domain_force"
+    >['|', ('deca_id.company_id', '=', False), ('deca_id.company_id', 'in', company_ids)]</field>
+        <field name="global" eval="True" />
+    </record>
+
+    <record id="deca_vehicle_company_rule" model="ir.rule">
+        <field name="name">DeCA vehicle: multi-company</field>
+        <field name="model_id" ref="model_l10n_es_deca_vehicle" />
+        <field
+      name="domain_force"
+    >['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
+        <field name="global" eval="True" />
+    </record>
+
+</odoo>

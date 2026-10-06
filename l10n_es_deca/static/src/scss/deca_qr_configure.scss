@@ -1,0 +1,19 @@
+// Copyright 2026 Grupo Isonor - David Palanca
+// License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
+
+.o_deca_qr_configure {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+
+  .o_deca_qr_iframe {
+    flex: 1 1 auto;
+    width: 100%;
+    border: none;
+  }
+}
+
+html .o_web_client > .o_action_manager > .o_deca_qr_configure {
+  height: 100%;
+}

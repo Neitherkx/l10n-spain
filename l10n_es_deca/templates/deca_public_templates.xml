@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 Grupo Isonor - David Palanca
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+    <!-- Base page of the public notices. It does not depend on `website`: the
+         DeCA link must be served without a portal nor manual interaction
+         (section Tercero.4). -->
+    <template id="deca_public_layout" name="DeCA: public notice">&lt;!DOCTYPE html&gt;
+        <html t-att-lang="(deca.company_id.partner_id.lang or 'en_US')[:2]">
+            <head>
+                <meta charset="utf-8" />
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
+                <meta name="robots" content="noindex, nofollow" />
+                <title>Electronic Administrative Control Document</title>
+                <link
+          rel="stylesheet"
+          href="/web/static/lib/bootstrap/dist/css/bootstrap.css"
+        />
+            </head>
+            <body class="bg-light">
+                <div class="container" style="max-width: 640px;">
+                    <div class="card shadow-sm my-5">
+                        <div class="card-body">
+                            <h1 class="h4 mb-3">
+                                Electronic Administrative Control Document (DeCA)
+                            </h1>
+                            <p class="text-muted mb-4">
+                                <span t-field="deca.name" />
+                            </p>
+                            <t t-out="0" />
+                        </div>
+                    </div>
+                </div>
+            </body>
+        </html>
+    </template>
+
+    <template id="deca_public_cancelled" name="DeCA: cancelled document">
+        <t t-call="l10n_es_deca.deca_public_layout">
+            <div class="alert alert-danger" role="alert">
+                <strong>This DeCA has been cancelled.</strong>
+            </div>
+            <p>
+                The transport service covered by this document was voided before it
+                started, so the document is no longer available for download.
+            </p>
+            <p t-if="deca.cancel_date" class="text-muted">
+                Cancellation date: <span t-field="deca.cancel_date" />
+            </p>
+        </t>
+    </template>
+
+    <template id="deca_public_replaced" name="DeCA: replaced document">
+        <t t-call="l10n_es_deca.deca_public_layout">
+            <div class="alert alert-warning" role="alert">
+                <strong>This DeCA has been replaced by another document.</strong>
+            </div>
+            <p>
+                A new document was issued for this same transport (Method B, section
+                Quinto.2 of the Resolution). The document in force is the following:
+            </p>
+            <p t-if="replacement and replacement.public_url">
+                <a
+          t-att-href="replacement.public_url"
+          class="btn btn-primary"
+        >Download the DeCA in force</a>
+            </p>
+            <p t-else="" class="text-muted">
+                The document replacing it is not publicly available yet. Request it
+                from the shipper or the carrier.
+            </p>
+        </t>
+    </template>
+
+    <template id="deca_public_closed" name="DeCA: public access closed">
+        <t t-call="l10n_es_deca.deca_public_layout">
+            <div class="alert alert-secondary" role="alert">
+                <strong>Public access to this DeCA is closed.</strong>
+            </div>
+            <p>
+                More than seven calendar days have elapsed since the end of the
+                service, so the public download is disabled (section Tercero.5 of the
+                Resolution).
+            </p>
+            <p class="text-muted">
+                The document is kept indefinitely and can be requested from the
+                shipper or the carrier.
+            </p>
+        </t>
+    </template>
+
+</odoo>

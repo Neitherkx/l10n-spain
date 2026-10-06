@@ -1,0 +1,486 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 Grupo Isonor - David Palanca
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+    <record id="view_deca_form" model="ir.ui.view">
+        <field name="name">l10n.es.deca.form</field>
+        <field name="model">l10n.es.deca</field>
+        <field name="arch" type="xml">
+            <form string="DeCA">
+                <header>
+                    <button
+            name="action_issue"
+            string="Issue"
+            type="object"
+            class="oe_highlight"
+            invisible="state != 'draft'"
+            groups="l10n_es_deca.group_deca_user"
+          />
+                    <button
+            name="action_register_modification"
+            string="Register modification"
+            type="object"
+            invisible="state not in ('issued', 'modified')"
+            groups="l10n_es_deca.group_deca_user"
+          />
+                    <button
+            name="action_reissue"
+            string="Reissue DeCA"
+            type="object"
+            invisible="state not in ('issued', 'modified')"
+            groups="l10n_es_deca.group_deca_user"
+          />
+                    <button
+            name="action_cancel"
+            string="Cancel DeCA"
+            type="object"
+            invisible="state not in ('issued', 'modified')"
+            groups="l10n_es_deca.group_deca_manager"
+          />
+                    <button
+            name="action_send_email"
+            string="Send by email"
+            type="object"
+            invisible="state == 'draft'"
+            groups="l10n_es_deca.group_deca_user"
+          />
+                    <button
+            name="action_verify_integrity"
+            string="Verify integrity"
+            type="object"
+            invisible="not pdf_sha256"
+          />
+                    <button
+            name="action_upload_own_document"
+            string="Convert document to DeCA"
+            type="object"
+            icon="fa-file-pdf-o"
+            invisible="state != 'draft' or custom_pdf"
+            groups="l10n_es_deca.group_deca_user"
+          />
+                    <field
+            name="state"
+            widget="statusbar"
+            statusbar_visible="draft,issued,modified,closed,replaced,cancelled"
+          />
+                </header>
+                <sheet>
+                    <widget
+            name="web_ribbon"
+            title="Issued"
+            bg_color="text-bg-success"
+            invisible="state not in ('issued', 'modified')"
+          />
+                    <widget
+            name="web_ribbon"
+            title="Replaced"
+            bg_color="text-bg-warning"
+            invisible="state != 'replaced'"
+          />
+                    <widget
+            name="web_ribbon"
+            title="Cancelled"
+            bg_color="text-bg-danger"
+            invisible="state != 'cancelled'"
+          />
+                    <div class="oe_button_box" name="button_box">
+                        <button
+              name="action_view_pickings"
+              type="object"
+              class="oe_stat_button"
+              icon="fa-truck"
+            >
+                            <field
+                name="picking_count"
+                widget="statinfo"
+                string="Deliveries"
+              />
+                        </button>
+                        <button
+              name="action_open_pdf"
+              type="object"
+              class="oe_stat_button"
+              icon="fa-file-pdf-o"
+              string="PDF"
+              invisible="not pdf_attachment_id"
+            />
+                    </div>
+
+                    <div
+            class="alert alert-info"
+            role="alert"
+            invisible="not replaced_deca_id"
+          >
+                        This DeCA was issued to replace a previous one (Method B).
+                        <button
+              name="action_open_replaced"
+              type="object"
+              string="View the original document"
+              class="btn-link"
+            />
+                    </div>
+                    <div
+            class="alert alert-warning"
+            role="alert"
+            invisible="not replacement_deca_id or state == 'replaced'"
+          >
+                        There is a replacement in progress for this DeCA (Method B).
+                        <button
+              name="action_open_replacement"
+              type="object"
+              string="View the replacement"
+              class="btn-link"
+            />
+                    </div>
+                    <div
+            class="alert alert-warning"
+            role="alert"
+            invisible="state != 'replaced'"
+          >
+                        Replaced document: its PDF and its token are kept untouched for
+                        traceability purposes, but the public link redirects to the
+                        document in force.
+                        <button
+              name="action_open_replacement"
+              type="object"
+              string="View the document in force"
+              class="btn-link"
+              invisible="not replacement_deca_id"
+            />
+                    </div>
+                    <div
+            class="alert alert-warning"
+            role="alert"
+            invisible="not pickings_changed"
+          >
+                        The deliveries covered by this DeCA have changed since it was
+                        issued. Register the modification (Method A) or reissue it
+                        (Method B) so that the document reflects what is actually being
+                        transported.
+                    </div>
+                    <div
+            class="alert alert-warning"
+            role="alert"
+            invisible="not missing_issue_data"
+          >
+                        Still missing to issue this DeCA:
+                        <field name="missing_issue_data" class="fw-bold" />
+                        <div class="mt-1">
+                            You can save the draft and fill it in later.
+                        </div>
+                    </div>
+
+                    <div class="oe_title">
+                        <h1><field name="name" readonly="1" /></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field
+                name="picking_ids"
+                widget="many2many_tags"
+                readonly="state != 'draft'"
+                options="{'no_create': True}"
+                domain="[('picking_type_code', '=', 'outgoing'), ('company_id', '=', company_id)]"
+              />
+                            <field
+                name="company_id"
+                groups="base.group_multi_company"
+              />
+                            <field
+                name="public_url"
+                widget="CopyClipboardChar"
+                invisible="not public_url"
+              />
+                            <field name="pdf_sha256" invisible="not pdf_sha256" />
+                            <field name="pdf_attachment_id" invisible="1" />
+                            <field name="replaced_deca_id" invisible="1" />
+                            <field name="replacement_deca_id" invisible="1" />
+                            <field name="pickings_changed" invisible="1" />
+                            <field name="is_grouped" invisible="1" />
+                        </group>
+                        <group>
+                            <field name="transport_date" readonly="state != 'draft'" />
+                            <field
+                name="service_end_date"
+                readonly="state != 'draft'"
+              />
+                            <field
+                name="access_close_date"
+                invisible="state == 'draft'"
+              />
+                            <field name="issue_date" invisible="state == 'draft'" />
+                            <field
+                name="cancel_reason"
+                invisible="state != 'cancelled'"
+              />
+                            <field
+                name="reissue_reason"
+                invisible="not replaced_deca_id"
+              />
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Shipper" name="shipper">
+                            <group>
+                                <field name="shipper_id" readonly="state != 'draft'" />
+                                <field name="shipper_vat" />
+                                <field name="shipper_address" />
+                            </group>
+                        </page>
+                        <page string="Carrier" name="carrier">
+                            <group>
+                                <field
+                  name="carrier_id"
+                  readonly="state != 'draft'"
+                  context="{'default_deca_carrier': True, 'default_company_type': 'company'}"
+                />
+                                <field name="carrier_vat" />
+                                <field name="carrier_address" />
+                                <field
+                  name="carrier_authorization"
+                  readonly="state != 'draft'"
+                />
+                            </group>
+                        </page>
+                        <page string="Shipment" name="shipment">
+                            <div class="text-muted mb-2" invisible="not is_grouped">
+                                Several deliveries grouped under this DeCA (section
+                                Sexto.1). The order shown below does not imply any
+                                order of execution.
+                            </div>
+                            <field name="line_ids" readonly="1">
+                                <list string="Shipment" create="false" delete="false">
+                                    <field name="picking_id" />
+                                    <field name="origin_address" />
+                                    <field name="destination_address" />
+                                    <field name="transport_date" />
+                                    <field name="nature" />
+                                    <field name="quantity" />
+                                    <field name="product_uom_id" />
+                                    <field name="weight" optional="hide" />
+                                </list>
+                            </field>
+                            <div class="text-muted mt-2" invisible="state != 'draft'">
+                                The lines mirror the delivery: to change them, edit the
+                                delivery itself.
+                            </div>
+                        </page>
+                        <page string="Vehicle" name="vehicle">
+                            <group>
+                                <field
+                  name="tractor_plate_id"
+                  readonly="state != 'draft'"
+                  domain="[('partner_id', '=', carrier_id), ('vehicle_type', '=', 'tractor'), ('company_id', 'in', [False, company_id])]"
+                  context="{'default_partner_id': carrier_id, 'default_vehicle_type': 'tractor', 'default_company_id': company_id}"
+                />
+                                <field
+                  name="trailer_plate_id"
+                  readonly="state != 'draft'"
+                  domain="[('partner_id', '=', carrier_id), ('vehicle_type', '=', 'trailer'), ('company_id', 'in', [False, company_id])]"
+                  context="{'default_partner_id': carrier_id, 'default_vehicle_type': 'trailer', 'default_company_id': company_id}"
+                />
+                            </group>
+                        </page>
+                        <page string="Notes" name="notes">
+                            <field
+                name="note"
+                readonly="state != 'draft'"
+                placeholder="Notes that must appear on the document..."
+              />
+                        </page>
+                        <page
+              string="Own document"
+              name="own_document"
+              invisible="not custom_pdf"
+            >
+                            <div class="alert alert-info" role="alert">
+                                This DeCA is your own document with the QR code
+                                stamped on it. The stamped file replaces the one
+                                Odoo generates: it is the one carried in the
+                                vehicle and the one the authority downloads from
+                                the public link.
+                            </div>
+                            <group>
+                                <group name="custom_pdf_file" string="File">
+                                    <field
+                    name="custom_pdf"
+                    filename="custom_pdf_filename"
+                    readonly="state != 'draft'"
+                  />
+                                    <field name="custom_pdf_filename" invisible="1" />
+                                    <field name="custom_pdf_page_count" />
+                                </group>
+                                <group name="custom_pdf_qr" string="QR placement">
+                                    <field name="qr_page" readonly="state != 'draft'" />
+                                    <field
+                    name="qr_position_x"
+                    readonly="state != 'draft'"
+                  />
+                                    <field
+                    name="qr_position_y"
+                    readonly="state != 'draft'"
+                  />
+                                    <field name="qr_size" readonly="state != 'draft'" />
+                                </group>
+                            </group>
+                            <div class="mt-2">
+                                <button
+                  name="action_configure_qr"
+                  type="object"
+                  string="Place the QR code"
+                  class="btn-primary"
+                  icon="fa-crosshairs"
+                  invisible="state != 'draft'"
+                />
+                                <button
+                  name="action_preview_stamped_pdf"
+                  type="object"
+                  string="Preview stamped PDF"
+                  class="btn-secondary"
+                  icon="fa-file-pdf-o"
+                />
+                            </div>
+                        </page>
+                        <page
+              string="Modification history"
+              name="changes"
+              invisible="not change_ids"
+            >
+                            <field name="change_ids" readonly="1">
+                                <list create="false" delete="false" edit="false">
+                                    <field name="field_label" />
+                                    <field name="old_value" />
+                                    <field name="new_value" />
+                                    <field name="reason" />
+                                    <field name="change_date" />
+                                    <field name="user_id" />
+                                </list>
+                            </field>
+                        </page>
+                        <page
+              string="Access log"
+              name="access_log"
+              invisible="state == 'draft'"
+            >
+                            <field name="access_log_ids" readonly="1">
+                                <list create="false" delete="false" edit="false">
+                                    <field name="access_date" />
+                                    <field name="ip_address" />
+                                    <field name="method" />
+                                    <field name="status_code" />
+                                    <field name="user_agent" optional="hide" />
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter />
+            </form>
+        </field>
+    </record>
+
+    <record id="view_deca_list" model="ir.ui.view">
+        <field name="name">l10n.es.deca.list</field>
+        <field name="model">l10n.es.deca</field>
+        <field name="arch" type="xml">
+            <list string="DeCA" sample="1">
+                <field name="name" />
+                <field name="transport_date" />
+                <field name="shipper_id" />
+                <field name="carrier_id" />
+                <field name="tractor_plate_id" optional="show" />
+                <field name="picking_ids" widget="many2many_tags" optional="show" />
+                <field name="issue_date" optional="hide" />
+                <field
+          name="company_id"
+          groups="base.group_multi_company"
+          optional="hide"
+        />
+                <field
+          name="state"
+          widget="badge"
+          decoration-info="state == 'draft'"
+          decoration-success="state in ('issued', 'modified')"
+          decoration-muted="state == 'closed'"
+          decoration-warning="state == 'replaced'"
+          decoration-danger="state == 'cancelled'"
+        />
+            </list>
+        </field>
+    </record>
+
+    <record id="view_deca_search" model="ir.ui.view">
+        <field name="name">l10n.es.deca.search</field>
+        <field name="model">l10n.es.deca</field>
+        <field name="arch" type="xml">
+            <search string="DeCA">
+                <field name="name" />
+                <field name="picking_ids" />
+                <field name="carrier_id" />
+                <field name="shipper_id" />
+                <field name="tractor_plate_id" />
+                <filter
+          name="filter_draft"
+          string="Drafts"
+          domain="[('state', '=', 'draft')]"
+        />
+                <filter
+          name="filter_issued"
+          string="Issued"
+          domain="[('state', 'in', ('issued', 'modified'))]"
+        />
+                <filter
+          name="filter_cancelled"
+          string="Cancelled"
+          domain="[('state', '=', 'cancelled')]"
+        />
+                <separator />
+                <filter
+          name="filter_grouped"
+          string="Grouped (section Sexto.1)"
+          domain="[('is_grouped', '=', True)]"
+        />
+                <separator />
+                <filter
+          name="filter_transport_date"
+          string="Transport date"
+          date="transport_date"
+        />
+                <group expand="0" string="Group By">
+                    <filter
+            name="group_state"
+            string="Status"
+            context="{'group_by': 'state'}"
+          />
+                    <filter
+            name="group_carrier"
+            string="Carrier"
+            context="{'group_by': 'carrier_id'}"
+          />
+                    <filter
+            name="group_transport_date"
+            string="Transport date"
+            context="{'group_by': 'transport_date'}"
+          />
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_deca" model="ir.actions.act_window">
+        <field name="name">DeCA</field>
+        <field name="res_model">l10n.es.deca</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_deca_search" />
+        <field name="context">{'search_default_filter_issued': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">No DeCA yet</p>
+            <p>
+                The DeCA is generated from the outgoing delivery order itself, with the
+                "Generate DeCA" button.
+            </p>
+        </field>
+    </record>
+
+</odoo>

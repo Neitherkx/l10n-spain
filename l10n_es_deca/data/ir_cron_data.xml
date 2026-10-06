@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 Grupo Isonor - David Palanca
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo noupdate="1">
+
+    <record id="cron_deca_close_public_access" model="ir.cron">
+        <field name="name">DeCA: close the expired public access</field>
+        <field name="model_id" ref="model_l10n_es_deca" />
+        <field name="state">code</field>
+        <field name="code">model._cron_close_public_access()</field>
+        <field name="user_id" ref="base.user_root" />
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="active" eval="True" />
+    </record>
+
+    <record id="cron_deca_purge_access_logs" model="ir.cron">
+        <field name="name">DeCA: purge access records older than one year</field>
+        <field name="model_id" ref="model_l10n_es_deca_access_log" />
+        <field name="state">code</field>
+        <field name="code">model._cron_purge_access_logs()</field>
+        <field name="user_id" ref="base.user_root" />
+        <field name="interval_number">1</field>
+        <field name="interval_type">weeks</field>
+        <field name="active" eval="True" />
+    </record>
+
+</odoo>

@@ -1,0 +1,10 @@
+// Copyright 2026 Grupo Isonor - David Palanca
+// License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
+
+// The OCA module `web_no_bubble` hides every tour pointer with
+// `.o_tour_pointer { display: none; }`. This module ships a guided tour, so the
+// pointer is restored here with a higher specificity selector, which makes the
+// override independent of the asset bundle order.
+body .o_tour_pointer {
+  display: block;
+}

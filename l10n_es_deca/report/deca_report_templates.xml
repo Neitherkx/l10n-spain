@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 Grupo Isonor - David Palanca
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+    <template id="report_deca_document">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="l10n_es_deca.report_deca_page" />
+            </t>
+        </t>
+    </template>
+
+    <template id="report_deca_page">
+        <t t-call="web.external_layout">
+            <t t-set="company" t-value="o.company_id" />
+            <div class="page">
+
+                <h2 class="mt-0">Electronic Administrative Control Document (DeCA)</h2>
+                <h4 class="mb-1"><span t-field="o.name" /></h4>
+                <p class="text-muted" style="font-size: 10px;">
+                    Content compliant with section Segundo of the Resolution of 5 June
+                    2026 of the Directorate-General for Land Transport
+                    (BOE-A-2026-12784) and with article 6 of Order FOM/2861/2012.
+                </p>
+
+                <div class="row mt-3">
+                    <div class="col-6">
+                        <h4>(a) Contractual shipper</h4>
+                        <div><span t-field="o.shipper_id.name" /></div>
+                        <div>Tax ID: <span t-field="o.shipper_vat" /></div>
+                        <div
+              t-field="o.shipper_id"
+              t-options="{'widget': 'contact', 'fields': ['address'], 'no_marker': True}"
+            />
+                    </div>
+                    <div class="col-6">
+                        <h4>(b) Effective carrier</h4>
+                        <div><span t-field="o.carrier_id.name" /></div>
+                        <div>Tax ID: <span t-field="o.carrier_vat" /></div>
+                        <div t-if="o.carrier_authorization">
+                            Authorization: <span t-field="o.carrier_authorization" />
+                        </div>
+
+                        <h4 class="mt-3">(g) Vehicle</h4>
+                        <div t-if="o.tractor_plate_id">
+                            Tractor plate: <span t-field="o.tractor_plate_id.name" />
+                        </div>
+                        <div t-if="o.trailer_plate_id">
+                            Trailer plate: <span t-field="o.trailer_plate_id.name" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-3" t-if="o.public_url">
+                    <div class="col-12">
+                        <h4>Verification</h4>
+                        <img
+              t-if="o.qr_image"
+              t-att-src="image_data_uri(o.qr_image)"
+              style="width: 110px; height: 110px;"
+              alt="DeCA download QR code"
+            />
+                        <div style="word-break: break-all; font-size: 10px;">
+                            <a t-att-href="o.public_url"><span
+                  t-field="o.public_url"
+                /></a>
+                        </div>
+                    </div>
+                </div>
+
+                <h4 class="mt-3">Shipment</h4>
+                <p class="text-muted" style="font-size: 10px;" t-if="o.is_grouped">
+                    Several shipments grouped in this same DeCA (section Sexto.1 of the
+                    Resolution). The order in which they appear
+                    <strong>does not imply</strong> any order of execution.
+                </p>
+                <p class="text-muted" style="font-size: 10px;" t-else="">
+                    Reference delivery:
+                    <span t-esc="', '.join(o.picking_ids.mapped('name'))" />
+                </p>
+                <table class="table table-sm" style="font-size: 10px;">
+                    <thead>
+                        <tr>
+                            <th t-if="o.is_grouped">Shipment</th>
+                            <th>(c) Origin</th>
+                            <th>(c) Destination</th>
+                            <th>(d) Nature</th>
+                            <th class="text-end">(d) Weight/Magnitude</th>
+                            <th>(f) Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr t-foreach="o.line_ids" t-as="line">
+                            <td t-if="o.is_grouped"><span
+                  t-field="line.picking_id.name"
+                /></td>
+                            <td><span t-field="line.origin_address" /></td>
+                            <td><span t-field="line.destination_address" /></td>
+                            <td><span t-field="line.nature" /></td>
+                            <td class="text-end">
+                                <span t-field="line.quantity" />
+                                <span t-field="line.product_uom_id.name" />
+                            </td>
+                            <td><span t-field="line.transport_date" /></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div t-if="o.note" class="mt-3">
+                    <h4>(e) Notes</h4>
+                    <div t-field="o.note" />
+                </div>
+
+                <div t-if="o.change_ids" style="page-break-before: always;">
+                    <h4>Modification history (Method A)</h4>
+                    <table class="table table-sm" style="font-size: 10px;">
+                        <thead>
+                            <tr>
+                                <th>Data</th>
+                                <th>Previous value</th>
+                                <th>New value</th>
+                                <th>Reason</th>
+                                <th>Date</th>
+                                <th>User</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr
+                t-foreach="o.change_ids.sorted('change_date')"
+                t-as="change"
+              >
+                                <td><span t-field="change.field_label" /></td>
+                                <td><del><span t-field="change.old_value" /></del></td>
+                                <td><span t-field="change.new_value" /></td>
+                                <td><span t-field="change.reason" /></td>
+                                <td><span t-field="change.change_date" /></td>
+                                <td><span t-field="change.user_id.name" /></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </t>
+    </template>
+
+</odoo>

@@ -1,0 +1,17 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_l10n_es_deca_readonly,l10n.es.deca readonly,model_l10n_es_deca,group_deca_readonly,1,0,0,0
+access_l10n_es_deca_user,l10n.es.deca user,model_l10n_es_deca,group_deca_user,1,1,1,0
+access_l10n_es_deca_manager,l10n.es.deca manager,model_l10n_es_deca,group_deca_manager,1,1,1,1
+access_l10n_es_deca_line_readonly,l10n.es.deca.line readonly,model_l10n_es_deca_line,group_deca_readonly,1,0,0,0
+access_l10n_es_deca_line_user,l10n.es.deca.line user,model_l10n_es_deca_line,group_deca_user,1,1,1,1
+access_l10n_es_deca_change_readonly,l10n.es.deca.change readonly,model_l10n_es_deca_change,group_deca_readonly,1,0,0,0
+access_l10n_es_deca_change_user,l10n.es.deca.change user,model_l10n_es_deca_change,group_deca_user,1,0,1,0
+access_l10n_es_deca_access_log_readonly,l10n.es.deca.access.log readonly,model_l10n_es_deca_access_log,group_deca_readonly,1,0,0,0
+access_l10n_es_deca_access_log_manager,l10n.es.deca.access.log manager,model_l10n_es_deca_access_log,group_deca_manager,1,1,1,1
+access_l10n_es_deca_vehicle_readonly,l10n.es.deca.vehicle readonly,model_l10n_es_deca_vehicle,group_deca_readonly,1,0,0,0
+access_l10n_es_deca_vehicle_user,l10n.es.deca.vehicle user,model_l10n_es_deca_vehicle,group_deca_user,1,1,1,1
+access_l10n_es_deca_vehicle_manager,l10n.es.deca.vehicle manager,model_l10n_es_deca_vehicle,group_deca_manager,1,1,1,1
+access_l10n_es_deca_modify_wizard,l10n.es.deca.modify.wizard,model_l10n_es_deca_modify_wizard,group_deca_user,1,1,1,1
+access_l10n_es_deca_reissue_wizard,l10n.es.deca.reissue.wizard,model_l10n_es_deca_reissue_wizard,group_deca_user,1,1,1,1
+access_l10n_es_deca_cancel_wizard,l10n.es.deca.cancel.wizard,model_l10n_es_deca_cancel_wizard,group_deca_manager,1,1,1,1
+access_l10n_es_deca_own_document,l10n.es.deca.own.document,model_l10n_es_deca_own_document,group_deca_user,1,1,1,1

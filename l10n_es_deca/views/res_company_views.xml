@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 Grupo Isonor - David Palanca
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+    <record id="view_company_form_deca" model="ir.ui.view">
+        <field name="name">res.company.form.deca</field>
+        <field name="model">res.company</field>
+        <field name="inherit_id" ref="base.view_company_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='color']" position="after">
+                <field name="deca_carrier" />
+                <field
+          name="deca_public_domain"
+          placeholder="e.g. deca.mycompany.es"
+          groups="l10n_es_deca.group_deca_manager"
+        />
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

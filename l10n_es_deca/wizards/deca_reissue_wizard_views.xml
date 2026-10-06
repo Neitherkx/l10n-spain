@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 Grupo Isonor - David Palanca
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+    <record id="view_deca_reissue_wizard_form" model="ir.ui.view">
+        <field name="name">l10n.es.deca.reissue.wizard.form</field>
+        <field name="model">l10n.es.deca.reissue.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Reissue DeCA">
+                <div class="alert alert-warning" role="alert">
+                    This is Method B (Resolution of 5 June 2026, BOE-A-2026-12784,
+                    section Quinto.2): it generates a completely new DeCA, with its
+                    own token, URL and QR code, for the same deliveries. The current
+                    document is kept as is (same PDF, same token), but its public link
+                    will stop serving the file directly and will redirect whoever
+                    visits it to the new one. Use it only for fundamental changes that
+                    Method A ("Register modification") does not cover.
+                </div>
+                <group>
+                    <field name="deca_id" invisible="1" />
+                    <field
+            name="reason"
+            placeholder="Why this DeCA needs to be reissued instead of modified..."
+          />
+                </group>
+                <footer>
+                    <button
+            name="action_reissue"
+            string="Reissue"
+            type="object"
+            class="btn-primary"
+            data-hotkey="q"
+          />
+                    <button
+            string="Cancel"
+            class="btn-secondary"
+            special="cancel"
+            data-hotkey="x"
+          />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+</odoo>

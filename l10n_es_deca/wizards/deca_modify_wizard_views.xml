@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 Grupo Isonor - David Palanca
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+    <record id="view_deca_modify_wizard_form" model="ir.ui.view">
+        <field name="name">l10n.es.deca.modify.wizard.form</field>
+        <field name="model">l10n.es.deca.modify.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Register DeCA modification">
+                <div class="alert alert-warning" role="alert">
+                    This is Method A (Resolution of 5 June 2026, BOE-A-2026-12784,
+                    section Quinto.1): the new data is added to the existing PDF and
+                    the previous value stays visible in the document's own change
+                    history -- same token, same URL, same QR. Use "Reissue DeCA"
+                    (Method B) instead for a fundamental change this method does not
+                    cover -- for example the shipper itself, not just a plate or a
+                    note.
+                </div>
+                <group>
+                    <field name="deca_id" invisible="1" />
+                    <field name="carrier_id" invisible="1" />
+                    <field name="field_name" />
+                    <field
+            name="new_tractor_plate_id"
+            invisible="field_name != 'tractor_plate_id'"
+            required="field_name == 'tractor_plate_id'"
+            domain="[('partner_id', '=', carrier_id), ('vehicle_type', '=', 'tractor')]"
+          />
+                    <field
+            name="new_trailer_plate_id"
+            invisible="field_name != 'trailer_plate_id'"
+            domain="[('partner_id', '=', carrier_id), ('vehicle_type', '=', 'trailer')]"
+          />
+                    <field
+            name="new_transport_date"
+            invisible="field_name != 'transport_date'"
+            required="field_name == 'transport_date'"
+          />
+                    <field
+            name="new_service_end_date"
+            invisible="field_name != 'service_end_date'"
+            required="field_name == 'service_end_date'"
+          />
+                    <field name="new_note" invisible="field_name != 'note'" />
+                    <field name="reason" placeholder="e.g. Tractor unit breakdown" />
+                </group>
+                <footer>
+                    <button
+            name="action_apply"
+            string="Apply"
+            type="object"
+            class="btn-primary"
+            data-hotkey="q"
+          />
+                    <button
+            string="Cancel"
+            class="btn-secondary"
+            special="cancel"
+            data-hotkey="x"
+          />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 Grupo Isonor - David Palanca
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+    <record id="view_deca_vehicle_list" model="ir.ui.view">
+        <field name="name">l10n.es.deca.vehicle.list</field>
+        <field name="model">l10n.es.deca.vehicle</field>
+        <field name="arch" type="xml">
+            <list string="Vehicles">
+                <field name="name" />
+                <field name="vehicle_type" />
+                <field
+          name="partner_id"
+          context="{'default_deca_carrier': True, 'default_company_type': 'company'}"
+        />
+                <field
+          name="company_id"
+          groups="base.group_multi_company"
+          optional="show"
+        />
+                <field name="note" optional="hide" />
+            </list>
+        </field>
+    </record>
+
+    <record id="view_deca_vehicle_form" model="ir.ui.view">
+        <field name="name">l10n.es.deca.vehicle.form</field>
+        <field name="model">l10n.es.deca.vehicle</field>
+        <field name="arch" type="xml">
+            <form string="Vehicle">
+                <sheet>
+                    <widget
+            name="web_ribbon"
+            title="Archived"
+            bg_color="text-bg-danger"
+            invisible="active"
+          />
+                    <group>
+                        <group>
+                            <field name="name" placeholder="1234ABC" />
+                            <field name="vehicle_type" />
+                        </group>
+                        <group>
+                            <field
+                name="partner_id"
+                context="{'default_deca_carrier': True, 'default_company_type': 'company'}"
+              />
+                            <field
+                name="company_id"
+                groups="base.group_multi_company"
+              />
+                            <field name="note" />
+                            <field name="active" invisible="1" />
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_deca_vehicle_search" model="ir.ui.view">
+        <field name="name">l10n.es.deca.vehicle.search</field>
+        <field name="model">l10n.es.deca.vehicle</field>
+        <field name="arch" type="xml">
+            <search string="Vehicles">
+                <field name="name" />
+                <field name="partner_id" />
+                <filter
+          name="filter_tractor"
+          string="Tractor units"
+          domain="[('vehicle_type', '=', 'tractor')]"
+        />
+                <filter
+          name="filter_trailer"
+          string="Trailers"
+          domain="[('vehicle_type', '=', 'trailer')]"
+        />
+                <separator />
+                <filter
+          name="filter_inactive"
+          string="Archived"
+          domain="[('active', '=', False)]"
+        />
+                <group expand="0" string="Group By">
+                    <filter
+            name="group_partner"
+            string="Carrier"
+            context="{'group_by': 'partner_id'}"
+          />
+                    <filter
+            name="group_type"
+            string="Type"
+            context="{'group_by': 'vehicle_type'}"
+          />
+                    <filter
+            name="group_company"
+            string="Company"
+            context="{'group_by': 'company_id'}"
+            groups="base.group_multi_company"
+          />
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_deca_vehicle" model="ir.actions.act_window">
+        <field name="name">DeCA Vehicles</field>
+        <field name="res_model">l10n.es.deca.vehicle</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Register the first plate</p>
+            <p>
+                The tractor unit and trailer plates of each DeCA carrier are chosen
+                later when generating each document.
+            </p>
+        </field>
+    </record>
+
+</odoo>

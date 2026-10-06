@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 Grupo Isonor - David Palanca
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo noupdate="1">
+
+    <record id="mail_template_deca_issued" model="mail.template">
+        <field name="name">DeCA: issued document</field>
+        <field name="model_id" ref="model_l10n_es_deca" />
+        <field
+      name="subject"
+    >DeCA {{ object.name }} - {{ object.company_id.name }}</field>
+        <field
+      name="email_from"
+    >{{ (object.company_id.email_formatted or user.email_formatted) }}</field>
+        <field
+      name="partner_to"
+    >{{ ','.join(str(p.id) for p in (object.shipper_id | object.carrier_id) if p.email) }}</field>
+        <field
+      name="description"
+    >Sent to the shipper and the carrier when the DeCA is issued.</field>
+        <field name="body_html" type="html">
+            <div style="margin:0px;padding:0px;font-size:13px;">
+                <p>Dear Sir or Madam,</p>
+                <p>
+                    The Electronic Administrative Control Document
+                    <strong t-out="object.name">DECA/2026/00001</strong>
+                    has been issued for the transport scheduled on
+                    <strong
+            t-out="format_date(object.transport_date)"
+          >09/21/2026</strong>.
+                </p>
+                <ul>
+                    <li>Contractual shipper: <t t-out="object.shipper_id.name" /> (<t
+              t-out="object.shipper_vat"
+            />)</li>
+                    <li>Effective carrier: <t t-out="object.carrier_id.name" /> (<t
+              t-out="object.carrier_vat"
+            />)</li>
+                    <li>Tractor plate: <t
+              t-out="object.tractor_plate_id.name or '-'"
+            /></li>
+                    <li>Trailer plate: <t
+              t-out="object.trailer_plate_id.name or '-'"
+            /></li>
+                </ul>
+                <p>
+                    The document can be downloaded without identification from the
+                    following link, the same one encoded in the QR printed on the PDF:
+                    <br />
+                    <a t-att-href="object.public_url" t-out="object.public_url">link</a>
+                </p>
+                <p>
+                    SHA-256 fingerprint of the PDF: <span t-out="object.pdf_sha256" />
+                </p>
+                <p>
+                    Public access will be closed automatically on
+                    <t t-out="format_date(object.access_close_date)" />,
+                    seven calendar days after the end of the service.
+                </p>
+                <p><t t-out="object.company_id.name" /></p>
+            </div>
+        </field>
+        <field name="lang">{{ object.shipper_id.lang }}</field>
+        <field name="auto_delete" eval="False" />
+    </record>
+
+</odoo>

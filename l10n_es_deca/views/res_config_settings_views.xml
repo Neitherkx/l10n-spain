@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 Grupo Isonor - David Palanca
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+    <record id="res_config_settings_view_form_deca" model="ir.ui.view">
+        <field name="name">res.config.settings.form.deca</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="stock.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <xpath
+        expr="//block[@name='operations_setting_container']"
+        position="after"
+      >
+                <block title="DeCA" name="deca_setting_container">
+                    <setting
+            id="deca_carrier_setting"
+            string="Own fleet"
+            help="Your company performs the transport, so it is set as the effective carrier by default on every delivery."
+          >
+                        <field name="deca_carrier" />
+                    </setting>
+                    <setting
+            id="deca_public_domain_setting"
+            string="DeCA public domain"
+            help="Leave it empty unless a reverse proxy publishes this company's DeCA under a different domain name. By default the instance's own domain is used, which is what answers /deca/&lt;token&gt;."
+            groups="l10n_es_deca.group_deca_manager"
+          >
+                        <field
+              name="deca_public_domain"
+              placeholder="e.g. deca.mycompany.es"
+            />
+                    </setting>
+                    <setting
+            id="deca_qr_setting"
+            string="Default QR placement on your own document"
+            help="Starting position of the QR code when a customer converts their own document into a DeCA. It can still be dragged document by document. Values are percentages of the page."
+            groups="l10n_es_deca.group_deca_manager"
+          >
+                        <div class="content-group">
+                            <div class="row mt8">
+                                <label for="deca_qr_page" class="col-lg-4" />
+                                <field name="deca_qr_page" class="col-lg-2" />
+                            </div>
+                            <div class="row">
+                                <label for="deca_qr_position_x" class="col-lg-4" />
+                                <field name="deca_qr_position_x" class="col-lg-2" />
+                            </div>
+                            <div class="row">
+                                <label for="deca_qr_position_y" class="col-lg-4" />
+                                <field name="deca_qr_position_y" class="col-lg-2" />
+                            </div>
+                            <div class="row">
+                                <label for="deca_qr_size" class="col-lg-4" />
+                                <field name="deca_qr_size" class="col-lg-2" />
+                            </div>
+                        </div>
+                    </setting>
+                </block>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
